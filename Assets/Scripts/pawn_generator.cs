@@ -15,10 +15,10 @@ public class pawn_generator : MonoBehaviour {
 		Resources.UnloadUnusedAssets();
 		for(int i = 0; i < 4; i++){
 			GameObject tempObj1 = Instantiate(IronPawn, new Vector3(4.5f, 0.5f, -0.5f + (float)i), Quaternion.identity) as GameObject;
-			StartCoroutine(MoveFromTo(tempObj1, new Vector3(4.5f, 0.5f, -0.5f + (float)i), new Vector3(4.5f, 1.11f, -0.5f + (float)i), 3f));
+			StartCoroutine(MoveFromTo(tempObj1, new Vector3(4.5f, 0.5f, -0.5f + (float)i), new Vector3(4.5f, 1.12f, -0.5f + (float)i), 3f));
 			GameObject tempObj2 = Instantiate(IronPawn, new Vector3(1.5f, 1.11f, -0.5f + (float)i), Quaternion.identity) as GameObject;
 			tempObj2.GetComponent<Renderer>().material = blackMaterial;
-			StartCoroutine(MoveFromTo(tempObj2, new Vector3(1.5f, 0.5f, -0.5f + (float)i), new Vector3(1.5f, 1.11f, -0.5f + (float)i), 3f));
+			StartCoroutine(MoveFromTo(tempObj2, new Vector3(1.5f, 0.5f, -0.5f + (float)i), new Vector3(1.5f, 1.12f, -0.5f + (float)i), 3f));
 		}
 	}
 
