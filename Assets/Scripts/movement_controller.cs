@@ -23,13 +23,14 @@ public class movement_controller : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out hit_latest,Mathf.Infinity)){
 				// Check if it is a Self Destruction Cell
-				if(hit_latest.transform.position.x < 0.5f || hit_latest.transform.position.z < -1.5f || hit_latest.transform.position.x > 3.5f || hit_latest.transform.position.z > 5.5f){
+				if(hit_latest.transform.position.x < 0.5f || hit_latest.transform.position.z < -1.5f || hit_latest.transform.position.x > 5.5f || hit_latest.transform.position.z > 3.5f){
+					//Debug.Log("Skipped");
 					goto skip_update_hit_fire1;
 				}
 				//Debug.Log(hit_latest.transform.gameObject.name);
 				//Debug.Log(hit_latest.transform.position);
 				int i = (int)((hit_latest.transform.position.x - 0.5f)*6 + (hit_latest.transform.position.z + 2.5f));
-				if(i + 6 <= 30){
+				if(i + 6 <= 36){
 					glowOn(i + 6);
 				}
 				if(i - 6 > 0){
@@ -66,6 +67,10 @@ public class movement_controller : MonoBehaviour {
 	void redGlowOn(int i){
 		GameObject go = GameObject.Find("GlowGlass-" + i);
 		go.GetComponent<Renderer>().material = glow_red_mat;
+		if(i == 1|| i == 6 || i == 31 || i == 36){
+			GameObject go2 = GameObject.Find("GlowGlass-" + i + "(1)");
+			go2.GetComponent<Renderer>().material = glow_red_mat;
+		}
 	}
 
 	void glowOff(){
@@ -80,6 +85,16 @@ public class movement_controller : MonoBehaviour {
 		for(int i = -31; i >= -36; i--){
 			GameObject go = GameObject.Find("GlowGlass" + i);
 			go.GetComponent<Renderer>().material = glass_mat;
+		}
+		for(int i = 1; i <= 36; i++){
+			if(i%6 == 0 || i%6 == 1){
+				GameObject go = GameObject.Find("GlowGlass-" + i);
+				go.GetComponent<Renderer>().material = glass_mat;
+			}
+			if(i == 1|| i == 6 || i == 31 || i == 36){
+				GameObject go = GameObject.Find("GlowGlass-" + i +"(1)");
+				go.GetComponent<Renderer>().material = glass_mat;
+			}
 		}
 	}
 
