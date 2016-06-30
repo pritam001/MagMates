@@ -17,7 +17,7 @@ Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\Un
 Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.060 seconds
+- Completed reload, in  0.050 seconds
 desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -25,9 +25,9 @@ desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
 Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 667.
-Total: 0.143685 ms (FindLiveObjects: 0.027796 ms CreateObjectMapping: 0.025230 ms MarkObjects: 0.085527 ms  DeleteObjects: 0.005131 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 672.
+Total: 0.184310 ms (FindLiveObjects: 0.068421 ms CreateObjectMapping: 0.023092 ms MarkObjects: 0.087237 ms  DeleteObjects: 0.004703 ms)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 9bb4 -> priority: 1 
-  Thread -> id: 9aa8 -> priority: 1 
+  Thread -> id: 1c874 -> priority: 1 
+  Thread -> id: 1d214 -> priority: 1 
