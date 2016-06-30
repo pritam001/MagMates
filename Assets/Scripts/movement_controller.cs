@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Collections;
@@ -10,6 +10,7 @@ public class movement_controller : MonoBehaviour {
 	public RaycastHit hit_latest;
 	public Material glass_mat;
 	public Material glow_neon_mat;
+	public Material glow_red_mat;	
 	// Use this for initialization
 	void Start () {
 	
@@ -21,23 +22,35 @@ public class movement_controller : MonoBehaviour {
 			glowOff();
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out hit_latest,Mathf.Infinity)){
+				// Check if it is a Self Destruction Cell
+				if(hit_latest.transform.position.x < 0.5f || hit_latest.transform.position.z < -1.5f || hit_latest.transform.position.x > 3.5f || hit_latest.transform.position.z > 5.5f){
+					goto skip_update_hit_fire1;
+				}
 				//Debug.Log(hit_latest.transform.gameObject.name);
 				//Debug.Log(hit_latest.transform.position);
-				int i = (int)((hit_latest.transform.position.x - 0.5f)*4 + (3.5f - hit_latest.transform.position.z));
-				if(i + 4 <= 24){
-					glowOn(i + 4);
+				int i = (int)((hit_latest.transform.position.x - 0.5f)*6 + (hit_latest.transform.position.z + 2.5f));
+				if(i + 6 <= 30){
+					glowOn(i + 6);
 				}
-				if(i - 4 > 0){
-					glowOn(i - 4);
+				if(i - 6 > 0){
+					glowOn(i - 6);
 				}
-				if(i % 4 != 0){
+				if(i % 6 != 0){
 					glowOn(i + 1);
+				} else {
+					redGlowOn(i);
 				}
-				if((i-1) % 4 != 0){
+				if((i-1) % 6 != 0){
 					glowOn(i - 1);
+				} else {
+					redGlowOn(i);
+				}
+				if(i <= 6 || i >= 31){
+					redGlowOn(i);
 				}
 			}
 		}
+		skip_update_hit_fire1:
 		if (Input.GetButtonDown("Fire2")) {
 			glowOff();
 			StartCoroutine(moveAnimStep(GameObject.Find("MagnetPawnA"), new Vector3(0,0,1), 1f));
@@ -45,13 +58,27 @@ public class movement_controller : MonoBehaviour {
 	}
 
 	void glowOn(int i){
-		GameObject go = GameObject.Find("Cube" + i + " (1)");
+		GameObject go = GameObject.Find("GlowGlass" + i);
 		go.GetComponent<Renderer>().material = glow_neon_mat;
 	}
 
+	// Red Glow shows positions where self destruction occurs
+	void redGlowOn(int i){
+		GameObject go = GameObject.Find("GlowGlass-" + i);
+		go.GetComponent<Renderer>().material = glow_red_mat;
+	}
+
 	void glowOff(){
-		for(int i = 1; i <= 24; i++){
-			GameObject go = GameObject.Find("Cube" + i + " (1)");
+		for(int i = 1; i <= 36; i++){
+			GameObject go = GameObject.Find("GlowGlass" + i);
+			go.GetComponent<Renderer>().material = glass_mat;
+		}
+		for(int i = -1; i >= -6; i--){
+			GameObject go = GameObject.Find("GlowGlass" + i);
+			go.GetComponent<Renderer>().material = glass_mat;
+		}
+		for(int i = -31; i >= -36; i--){
+			GameObject go = GameObject.Find("GlowGlass" + i);
 			go.GetComponent<Renderer>().material = glass_mat;
 		}
 	}
