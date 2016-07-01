@@ -6,6 +6,7 @@ public class SceneLoader : MonoBehaviour {
 	public Animator loadingAnimation;
 	public InstantGuiButton start_game_button;
     private bool loadScene = false;
+    private float time_passed = 0f;
 
     [SerializeField]
     private int scene;
@@ -16,29 +17,24 @@ public class SceneLoader : MonoBehaviour {
 
     // Updates once per frame
     void Update() {
-    	if(start_game_button.activated){
+    	if(start_game_button.activated && loadScene == false){
+    		// ...set the loadScene boolean to true to prevent loading a new scene more than once...
+            loadScene = true;
     		StartCoroutine(LoadNewScene());
     	}
 
-        // If the player has pressed the space bar and a new scene is not loading yet...
-        if (Input.GetKeyUp(KeyCode.Space) && loadScene == false) {
-
-            // ...set the loadScene boolean to true to prevent loading a new scene more than once...
-            loadScene = true;
-
-            // ...change the instruction text to read "Loading..."
-            loadingText.text = "Loading..." + loadProgress;
-
-            // ...and start a coroutine that will load the desired scene.
-            StartCoroutine(LoadNewScene());
-
-        }
-
         // If the new scene has started loading...
         if (loadScene == true) {
-
-            // ...then pulse the transparency of the loading text to let the player know that the computer is still working.
-            //loadingText.color = new Color(loadingText.color.r, loadingText.color.g, loadingText.color.b, Mathf.PingPong(Time.time, 1));
+        	time_passed += Time.deltaTime;
+        	int text_choice = (int)((time_passed * 10 / 3) % 3);
+            // ...let the player know that the computer is still working.
+            if(text_choice == 0){
+	            loadingText.text = "L o a d i n g  .";
+	        } else if (text_choice == 1){
+	            loadingText.text = "L o a d i n g  .  .";
+	        } else {
+	        	loadingText.text = "L o a d i n g  .  .  .";
+	        }
 
         }
 
