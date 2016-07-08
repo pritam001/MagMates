@@ -27,27 +27,35 @@ public class movement_controller : MonoBehaviour {
 					//Debug.Log("Skipped");
 					goto skip_update_hit_fire1;
 				}
-				//Debug.Log(hit_latest.transform.gameObject.name);
-				//Debug.Log(hit_latest.transform.position);
-				int i = (int)((hit_latest.transform.position.x - 0.5f)*6 + (hit_latest.transform.position.z + 2.5f));
-				if(i + 6 <= 36){
-					glowOn(i + 6);
-				}
-				if(i - 6 > 0){
-					glowOn(i - 6);
-				}
-				if(i % 6 != 0){
-					glowOn(i + 1);
-				} else {
-					redGlowOn(i);
-				}
-				if((i-1) % 6 != 0){
-					glowOn(i - 1);
-				} else {
-					redGlowOn(i);
-				}
-				if(i <= 6 || i >= 31){
-					redGlowOn(i);
+
+				// Check if it is a pawn of the current team
+				int column = (int)(hit_latest.transform.position.x + 0.5f);
+				int row = (int)(hit_latest.transform.position.z + 2.5f);
+				Debug.Log("[" + row + ", " + column + "] = " + game_controller.boardMatrix[row,column]);
+				if(game_controller.boardMatrix[row,column] >= 1 && game_controller.boardMatrix[row,column] <= 3 && game_controller.playerNo == 1
+					|| game_controller.boardMatrix[row,column] >= 5 && game_controller.boardMatrix[row,column] <= 7 && game_controller.playerNo == 2 ){
+					//Debug.Log(hit_latest.transform.gameObject.name);
+					//Debug.Log(hit_latest.transform.position);
+					int i = (int)((hit_latest.transform.position.x - 0.5f)*6 + (hit_latest.transform.position.z + 2.5f));
+					if(i + 6 <= 36){
+						glowOn(i + 6);
+					}
+					if(i - 6 > 0){
+						glowOn(i - 6);
+					}
+					if(i % 6 != 0){
+						glowOn(i + 1);
+					} else {
+						redGlowOn(i);
+					}
+					if((i-1) % 6 != 0){
+						glowOn(i - 1);
+					} else {
+						redGlowOn(i);
+					}
+					if(i <= 6 || i >= 31){
+						redGlowOn(i);
+					}
 				}
 			}
 		}

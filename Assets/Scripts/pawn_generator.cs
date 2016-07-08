@@ -9,7 +9,6 @@ public class pawn_generator : MonoBehaviour {
 
 	public GameObject IronPawn;
 	public Material blackMaterial;
-
 	// Use this for initialization
 	void Awake () {
 		Resources.UnloadUnusedAssets();
@@ -19,6 +18,15 @@ public class pawn_generator : MonoBehaviour {
 			GameObject tempObj2 = Instantiate(IronPawn, new Vector3(1.5f, 0.5f, -0.5f + (float)i), Quaternion.identity) as GameObject;
 			tempObj2.GetComponent<Renderer>().material = blackMaterial;
 			StartCoroutine(MoveFromTo(tempObj2, new Vector3(1.5f, 0.5f, -1.5f + (float)i), new Vector3(1.5f, 1.12f, -1.5f + (float)i), 3f));
+		}
+
+		game_controller.playerNo = 1;
+
+		game_controller.boardMatrix[3,1] = 1;
+		game_controller.boardMatrix[4,6] = 5;
+		for(int j = 1; j <= 6; j++){
+			game_controller.boardMatrix[j,2] = 2;
+			game_controller.boardMatrix[j,5] = 6;
 		}
 	}
 
