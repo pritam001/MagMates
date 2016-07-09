@@ -7,10 +7,13 @@ using System.Collections.Generic;
 
 public class movement_controller : MonoBehaviour {
 
-	public RaycastHit hit_latest;
+	public RaycastHit hit_latest, hit_latest2;
 	public Material glass_mat;
 	public Material glow_neon_mat;
-	public Material glow_red_mat;	
+	public Material glow_red_mat;
+	public int hit_latest_column, hit_latest_row;
+	public int hit_latest2_column, hit_latest2_row;
+	private bool correct_pawn_selected = false;	
 	// Use this for initialization
 	void Start () {
 	
@@ -20,6 +23,7 @@ public class movement_controller : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown("Fire1")) {
 			glowOff();
+			correct_pawn_selected = false;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out hit_latest,Mathf.Infinity)){
 				// Check if it is a Self Destruction Cell
@@ -29,12 +33,13 @@ public class movement_controller : MonoBehaviour {
 				}
 
 				// Check if it is a pawn of the current team
-				int column = (int)(hit_latest.transform.position.x + 0.5f);
-				int row = (int)(hit_latest.transform.position.z + 2.5f);
-				Debug.Log("[" + row + ", " + column + "] = " + game_controller.boardMatrix[row,column]);
-				if(game_controller.boardMatrix[row,column] >= 1 && game_controller.boardMatrix[row,column] <= 3 && game_controller.playerNo == 1
-					|| game_controller.boardMatrix[row,column] >= 5 && game_controller.boardMatrix[row,column] <= 7 && game_controller.playerNo == 2 ){
+				hit_latest_column = (int)(hit_latest.transform.position.x + 0.5f);
+				hit_latest_row = (int)(hit_latest.transform.position.z + 2.5f);
+				Debug.Log("[" + hit_latest_row + ", " + hit_latest_column + "] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column]);
+				if(game_controller.boardMatrix[hit_latest_row,hit_latest_column] >= 1 && game_controller.boardMatrix[hit_latest_row,hit_latest_column] <= 3 && game_controller.playerNo == 1
+					|| game_controller.boardMatrix[hit_latest_row,hit_latest_column] >= 5 && game_controller.boardMatrix[hit_latest_row,hit_latest_column] <= 7 && game_controller.playerNo == 2 ){
 					//Debug.Log(hit_latest.transform.gameObject.name);
+					correct_pawn_selected = true;
 					//Debug.Log(hit_latest.transform.position);
 					int i = (int)((hit_latest.transform.position.x - 0.5f)*6 + (hit_latest.transform.position.z + 2.5f));
 					if(i + 6 <= 36){
@@ -62,7 +67,23 @@ public class movement_controller : MonoBehaviour {
 		skip_update_hit_fire1:
 		if (Input.GetButtonDown("Fire2")) {
 			glowOff();
-			StartCoroutine(moveAnimStep(GameObject.Find("MagnetPawnA"), new Vector3(0,0,1), 1f));
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if(Physics.Raycast(ray,out hit_latest2,Mathf.Infinity)){
+				hit_latest2_column = (int)(hit_latest2.transform.position.x + 0.5f);
+				hit_latest2_row = (int)(hit_latest2.transform.position.z + 2.5f);
+				float distance = Mathf.Abs(hit_latest2.transform.position.x - hit_latest.transform.position.x) + Mathf.Abs(hit_latest2.transform.position.z - hit_latest.transform.position.z);
+				if(distance == 1 && correct_pawn_selected){
+					// If selected cell is empty, move to that cell
+					if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 0){
+						Debug.Log("boardMatrix["+hit_latest_row+","+hit_latest_column+"] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column] + " moving to empty cell");
+						game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] = game_controller.boardMatrix[hit_latest_row,hit_latest_column];
+						game_controller.boardMatrix[hit_latest_row,hit_latest_column] = 0;
+						StartCoroutine(moveAnimStep(hit_latest.transform.gameObject, new Vector3((hit_latest2.transform.position.x - hit_latest.transform.position.x),0,(hit_latest2.transform.position.z - hit_latest.transform.position.z)), 1f));
+						Debug.Log(hit_latest.transform.gameObject.name + " moveAnimStep (" + (hit_latest2.transform.position.x - hit_latest.transform.position.x) + ",0," + (hit_latest2.transform.position.z - hit_latest.transform.position.z) +")");
+					}
+				}
+			}
+			//StartCoroutine(moveAnimStep(GameObject.Find("MagnetPawnA"), new Vector3(0,0,1), 1f));
 		}
 	}
 

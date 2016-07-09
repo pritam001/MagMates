@@ -15,4 +15,13 @@ public class game_controller : MonoBehaviour {
 	void Update () {
 
 	}
+
+	public static void changePlayer () {
+		if(playerNo == 1){
+			playerNo = 2;
+		} else if(playerNo == 2){
+			playerNo = 1;
+		}
+		Debug.Log("Switched to Player " + playerNo);
+	}
 }
