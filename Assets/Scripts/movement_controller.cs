@@ -83,6 +83,7 @@ public class movement_controller : MonoBehaviour {
 						game_controller.boardMatrix[hit_latest_row,hit_latest_column] = 0;
 						StartCoroutine(moveAnimStep(hit_latest.transform.gameObject, new Vector3((hit_latest2.transform.position.x - hit_latest.transform.position.x),0,(hit_latest2.transform.position.z - hit_latest.transform.position.z)), 1f));
 						Debug.Log(hit_latest.transform.gameObject.name + " moveAnimStep (" + (hit_latest2.transform.position.x - hit_latest.transform.position.x) + ",0," + (hit_latest2.transform.position.z - hit_latest.transform.position.z) +")");
+						game_controller.changePlayer();
 					}
 				}
 			}
