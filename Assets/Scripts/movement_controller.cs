@@ -92,8 +92,7 @@ public class movement_controller : MonoBehaviour {
 						game_controller.boardMatrix[hit_latest_row,hit_latest_column] = 0;
 						StartCoroutine(moveAnimStep(hit_latest.transform.gameObject, new Vector3((hit_latest2.transform.position.x - hit_latest.transform.position.x),0,(hit_latest2.transform.position.z - hit_latest.transform.position.z)), 1f));
 						Debug.Log(hit_latest.transform.gameObject.name + " moveAnimStep (" + (hit_latest2.transform.position.x - hit_latest.transform.position.x) + ",0," + (hit_latest2.transform.position.z - hit_latest.transform.position.z) +")");
-						StartCoroutine(destroyPawn(hit_latest.transform.gameObject));
-						Debug.Log("Player" + game_controller.playerNo + "'s " + hit_latest.transform.gameObject.name + " self destroyed.");
+						StartCoroutine(destroyPawn(hit_latest.transform.gameObject, game_controller.playerNo));
 						game_controller.changePlayer();
 					}
 				}
@@ -152,10 +151,11 @@ public class movement_controller : MonoBehaviour {
 		}
 	}
 
-	IEnumerator destroyPawn(GameObject gameObject){
-		yield return new WaitForSeconds(1.5f); // this will wait > 1 seconds
+	IEnumerator destroyPawn(GameObject gameObject, int playerNumber){
+		yield return new WaitForSeconds(1.05f); // this will wait > 1 seconds
 		GameObject blastObj = Instantiate(destructionPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
 		Destroy(gameObject);
+		Debug.Log("Player" + playerNumber + "'s " + hit_latest.transform.gameObject.name + " self destroyed.");
 		yield return new WaitForSeconds(2f);
 		Destroy(blastObj);
 	} 
