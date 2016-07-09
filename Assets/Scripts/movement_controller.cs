@@ -26,6 +26,9 @@ public class movement_controller : MonoBehaviour {
 			correct_pawn_selected = false;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out hit_latest,Mathf.Infinity)){
+				// Debug: Selection of glass in hit_latest instead of pawn
+				// Re-RayCast using current x and z
+				Physics.Raycast( new Vector3 (hit_latest.transform.position.x, 5f, hit_latest.transform.position.z), Vector3.down,out hit_latest,Mathf.Infinity);
 				// Check if it is a Self Destruction Cell
 				if(hit_latest.transform.position.x < 0.5f || hit_latest.transform.position.z < -1.5f || hit_latest.transform.position.x > 5.5f || hit_latest.transform.position.z > 3.5f){
 					//Debug.Log("Skipped");
