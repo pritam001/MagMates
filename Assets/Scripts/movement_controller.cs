@@ -11,6 +11,7 @@ public class movement_controller : MonoBehaviour {
 	public Material glass_mat;
 	public Material glow_neon_mat;
 	public Material glow_red_mat;
+	public GameObject destructionPrefab;
 	public int hit_latest_column, hit_latest_row;
 	public int hit_latest2_column, hit_latest2_row;
 	private bool correct_pawn_selected = false;	
@@ -38,7 +39,7 @@ public class movement_controller : MonoBehaviour {
 				// Check if it is a pawn of the current team
 				hit_latest_column = (int)(hit_latest.transform.position.x + 0.5f);
 				hit_latest_row = (int)(hit_latest.transform.position.z + 2.5f);
-				Debug.Log("[" + hit_latest_row + ", " + hit_latest_column + "] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column]);
+				Debug.Log("Player" + game_controller.playerNo + " clicked on [" + hit_latest_row + ", " + hit_latest_column + "] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column]);
 				if(game_controller.boardMatrix[hit_latest_row,hit_latest_column] >= 1 && game_controller.boardMatrix[hit_latest_row,hit_latest_column] <= 3 && game_controller.playerNo == 1
 					|| game_controller.boardMatrix[hit_latest_row,hit_latest_column] >= 5 && game_controller.boardMatrix[hit_latest_row,hit_latest_column] <= 7 && game_controller.playerNo == 2 ){
 					//Debug.Log(hit_latest.transform.gameObject.name);
@@ -78,11 +79,21 @@ public class movement_controller : MonoBehaviour {
 				if(distance == 1 && correct_pawn_selected){
 					// If selected cell is empty, move to that cell
 					if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 0){
-						Debug.Log("boardMatrix["+hit_latest_row+","+hit_latest_column+"] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column] + " moving to empty cell");
+						Debug.Log("boardMatrix["+hit_latest_row+","+hit_latest_column+"] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column] + " moving to empty cell " + "boardMatrix["+hit_latest2_row+","+hit_latest2_column+"] = " + game_controller.boardMatrix[hit_latest2_row,hit_latest2_column]);
 						game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] = game_controller.boardMatrix[hit_latest_row,hit_latest_column];
 						game_controller.boardMatrix[hit_latest_row,hit_latest_column] = 0;
 						StartCoroutine(moveAnimStep(hit_latest.transform.gameObject, new Vector3((hit_latest2.transform.position.x - hit_latest.transform.position.x),0,(hit_latest2.transform.position.z - hit_latest.transform.position.z)), 1f));
 						Debug.Log(hit_latest.transform.gameObject.name + " moveAnimStep (" + (hit_latest2.transform.position.x - hit_latest.transform.position.x) + ",0," + (hit_latest2.transform.position.z - hit_latest.transform.position.z) +")");
+						game_controller.changePlayer();
+					}
+					// If selected cell is self destruction cell
+					if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == -1){
+						Debug.Log("boardMatrix["+hit_latest_row+","+hit_latest_column+"] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column] + " moving to self destruction cell " + "boardMatrix["+hit_latest2_row+","+hit_latest2_column+"] = " + game_controller.boardMatrix[hit_latest2_row,hit_latest2_column]);
+						game_controller.boardMatrix[hit_latest_row,hit_latest_column] = 0;
+						StartCoroutine(moveAnimStep(hit_latest.transform.gameObject, new Vector3((hit_latest2.transform.position.x - hit_latest.transform.position.x),0,(hit_latest2.transform.position.z - hit_latest.transform.position.z)), 1f));
+						Debug.Log(hit_latest.transform.gameObject.name + " moveAnimStep (" + (hit_latest2.transform.position.x - hit_latest.transform.position.x) + ",0," + (hit_latest2.transform.position.z - hit_latest.transform.position.z) +")");
+						StartCoroutine(destroyPawn(hit_latest.transform.gameObject));
+						Debug.Log("Player" + game_controller.playerNo + "'s " + hit_latest.transform.gameObject.name + " self destroyed.");
 						game_controller.changePlayer();
 					}
 				}
@@ -140,4 +151,12 @@ public class movement_controller : MonoBehaviour {
 			yield return null;         // Leave the routine and return here in the next frame
 		}
 	}
+
+	IEnumerator destroyPawn(GameObject gameObject){
+		yield return new WaitForSeconds(1.5f); // this will wait > 1 seconds
+		GameObject blastObj = Instantiate(destructionPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+		Destroy(gameObject);
+		yield return new WaitForSeconds(2f);
+		Destroy(blastObj);
+	} 
 }

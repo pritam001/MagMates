@@ -22,6 +22,6 @@ public class game_controller : MonoBehaviour {
 		} else if(playerNo == 2){
 			playerNo = 1;
 		}
-		Debug.Log("Switched to Player " + playerNo);
+		Debug.Log("Switched to Player" + playerNo);
 	}
 }
