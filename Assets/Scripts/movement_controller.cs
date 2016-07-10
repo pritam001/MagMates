@@ -76,29 +76,88 @@ public class movement_controller : MonoBehaviour {
 				hit_latest2_column = (int)(hit_latest2.transform.position.x + 0.5f);
 				hit_latest2_row = (int)(hit_latest2.transform.position.z + 2.5f);
 				float distance = Mathf.Abs(hit_latest2.transform.position.x - hit_latest.transform.position.x) + Mathf.Abs(hit_latest2.transform.position.z - hit_latest.transform.position.z);
+				
+				int x_value = (int)(Mathf.Abs(hit_latest2.transform.position.x - hit_latest.transform.position.x));
+				int z_value = (int)(Mathf.Abs(hit_latest2.transform.position.z - hit_latest.transform.position.z));
+				if(x_value == 1){
+					x_value = (int)(Mathf.Abs(hit_latest2.transform.position.x - hit_latest.transform.position.x)/(hit_latest2.transform.position.x - hit_latest.transform.position.x));
+				}
+				if(z_value == 1){
+					z_value = (int)(Mathf.Abs(hit_latest2.transform.position.z - hit_latest.transform.position.z)/(hit_latest2.transform.position.z - hit_latest.transform.position.z));
+				}
+
 				if(distance == 1 && correct_pawn_selected){
-					// If selected cell is empty, move to that cell
 					if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 0){
+						// If selected cell is empty, move to that cell
 						Debug.Log("boardMatrix["+hit_latest_row+","+hit_latest_column+"] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column] + " moving to empty cell " + "boardMatrix["+hit_latest2_row+","+hit_latest2_column+"] = " + game_controller.boardMatrix[hit_latest2_row,hit_latest2_column]);
 						game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] = game_controller.boardMatrix[hit_latest_row,hit_latest_column];
 						game_controller.boardMatrix[hit_latest_row,hit_latest_column] = 0;
 						StartCoroutine(moveAnimStep(hit_latest.transform.gameObject, new Vector3((hit_latest2.transform.position.x - hit_latest.transform.position.x),0,(hit_latest2.transform.position.z - hit_latest.transform.position.z)), 1f));
 						Debug.Log(hit_latest.transform.gameObject.name + " moveAnimStep (" + (hit_latest2.transform.position.x - hit_latest.transform.position.x) + ",0," + (hit_latest2.transform.position.z - hit_latest.transform.position.z) +")");
 						game_controller.changePlayer();
-					}
-					// If selected cell is self destruction cell
-					if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == -1){
+					} else if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == -1){
+						// If selected cell is self destruction cell
 						Debug.Log("boardMatrix["+hit_latest_row+","+hit_latest_column+"] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column] + " moving to self destruction cell " + "boardMatrix["+hit_latest2_row+","+hit_latest2_column+"] = " + game_controller.boardMatrix[hit_latest2_row,hit_latest2_column]);
 						game_controller.boardMatrix[hit_latest_row,hit_latest_column] = 0;
 						StartCoroutine(moveAnimStep(hit_latest.transform.gameObject, new Vector3((hit_latest2.transform.position.x - hit_latest.transform.position.x),0,(hit_latest2.transform.position.z - hit_latest.transform.position.z)), 1f));
 						Debug.Log(hit_latest.transform.gameObject.name + " moveAnimStep (" + (hit_latest2.transform.position.x - hit_latest.transform.position.x) + ",0," + (hit_latest2.transform.position.z - hit_latest.transform.position.z) +")");
 						StartCoroutine(destroyPawn(hit_latest.transform.gameObject, game_controller.playerNo));
 						game_controller.changePlayer();
+					} else if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 3 || game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 7){
+						// If selected cell contains plastic
+						if(game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value] > 0){
+							Debug.Log("Cell next to plastic is not empty.");
+							Debug.Log("boardMatrix[" + (hit_latest_row + z_value) + "," + (hit_latest_column + x_value) + "] = " + game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value]);
+						} else {
+							Debug.Log("Cell next to plastic is empty. Plastic gets pushed.");
+						}
+						
+					} else if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] > 0f){
+						// If selected cell contains some pawn other than plastic
+						bool plastic_blocks = false;
+						Debug.Log("Move checking " + game_controller.boardMatrix[hit_latest2_row,hit_latest2_column]);
+						int i = 1;
+						//Debug.Log("x_value = " + x_value + " z_value = " + z_value);
+						while(game_controller.boardMatrix[hit_latest_row + i*z_value,hit_latest_column + i*x_value] > 0){
+							//Debug.Log("Checking " + game_controller.boardMatrix[hit_latest_row + i*z_value,hit_latest_column + i*x_value]);
+							// Check if plastic exists in the path
+							if(game_controller.boardMatrix[hit_latest_row + i*z_value,hit_latest_column + i*x_value] == 3 || game_controller.boardMatrix[hit_latest_row + i*z_value,hit_latest_column + i*x_value] == 7){
+								plastic_blocks = true;
+							}
+							i += 1;
+						}
+
+						if(plastic_blocks){
+							Debug.Log("Plastic blocked the desired movement.");
+						} else {
+							for(;i>0;i--){
+								push_pawn(hit_latest_row + (i-1)*z_value, hit_latest_column + (i-1)*x_value, z_value, x_value);
+							}
+							Debug.Log("Pushing all the pawns in the path.");
+							game_controller.changePlayer();
+						}
 					}
 				}
 			}
-			//StartCoroutine(moveAnimStep(GameObject.Find("MagnetPawnA"), new Vector3(0,0,1), 1f));
+			// You have to re-left-click to move again
+			correct_pawn_selected = false;
 		}
+	}
+
+	// Pushes the pawn of selected row and column using z and x as unit directions
+	void push_pawn(int row_num,int col_num,int z,int x){
+		RaycastHit temp_hit;
+		Physics.Raycast( new Vector3 (col_num - 0.5f, 5f, row_num - 2.5f), Vector3.down,out temp_hit,Mathf.Infinity);
+		if(game_controller.boardMatrix[row_num + z, col_num + x] == 0){
+			game_controller.boardMatrix[row_num + z, col_num + x] = game_controller.boardMatrix[row_num, col_num];
+			game_controller.boardMatrix[row_num, col_num] = 0;
+			StartCoroutine(moveAnimStep(temp_hit.transform.gameObject, new Vector3(x,0,z), 1f));
+		} else if(game_controller.boardMatrix[row_num + z, col_num + x] == -1){
+			game_controller.boardMatrix[row_num, col_num] = 0;
+			StartCoroutine(moveAnimStep(temp_hit.transform.gameObject, new Vector3(x,0,z), 1f));
+			StartCoroutine(destroyPawn(temp_hit.transform.gameObject, game_controller.playerNo));
+		}
+
 	}
 
 	void glowOn(int i){
