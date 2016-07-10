@@ -238,11 +238,11 @@ public class movement_controller : MonoBehaviour {
 			}
 		}
 		if(!magnet2_exists){
-			game_controller.playerWon(1);
+			GetComponent<game_controller>().playerWon(1);
 			game_controller.game_ended = true;
 		}
 		if(!magnet1_exists){
-			game_controller.playerWon(2);
+			GetComponent<game_controller>().playerWon(2);
 			game_controller.game_ended = true;
 		}
 		// Wait 2 seconds, then destroy the Explosion Prefab

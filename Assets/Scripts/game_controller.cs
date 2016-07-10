@@ -10,6 +10,8 @@ public class game_controller : MonoBehaviour {
 	public static bool game_ended = false;
 	public static bool game_paused = false;
 
+	public Animator gameEndAnimation;
+
 	public Transform target;//the target object
 	public GameObject mainCamera;
 	private float speedMod = 10.0f;//a speed modifier
@@ -46,7 +48,8 @@ public class game_controller : MonoBehaviour {
 		}
 	}
 
-	public static void playerWon(int playerNum){
+	public void playerWon(int playerNum){
 		Debug.Log("Game ended! Player"+playerNum+" has won the game as opponent's magnet got destroyed.");
+		gameEndAnimation.SetBool("game_ended", true);
 	}
 }
