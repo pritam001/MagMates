@@ -1,0 +1,198 @@
+Initialize engine version: 5.2.2f1 (3757309da7e7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.150 seconds
+desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2c450 -> priority: 1 
+  Thread -> id: 2c0e8 -> priority: 1 
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 7 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 7 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 9 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 19 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 19 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 19 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 19 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 19 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+UnloadTime: 10.969251 ms
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1670.
+Total: 1.456522 ms (FindLiveObjects: 0.157797 ms CreateObjectMapping: 0.114178 ms MarkObjects: 0.697899 ms  DeleteObjects: 0.485792 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 1670.
+Total: 0.941650 ms (FindLiveObjects: 0.157797 ms CreateObjectMapping: 0.109474 ms MarkObjects: 0.659839 ms  DeleteObjects: 0.013684 ms)
+
+Player1 clicked on [3, 2] = 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Player1 clicked on [3, 2] = 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+boardMatrix[3,2] = 2 moving to empty cell boardMatrix[3,3] = 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+IronPawn(Clone) moveAnimStep (0.858598,0,0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Switched to Player2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Player2 clicked on [4, 5] = 6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+boardMatrix[4,5] = 6 moving to empty cell boardMatrix[4,4] = 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+IronPawn(Clone) moveAnimStep (-0.8510756,0,0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Switched to Player1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Player1 clicked on [4, 2] = 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Move checking 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Pushing all the pawns in the path.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Switched to Player2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Player1's IronPawn(Clone) self destroyed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_field_version_Data\Managed\Boo.Lang.dll (this message is harmless)

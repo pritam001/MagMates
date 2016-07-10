@@ -54,12 +54,10 @@
      <Compile Include="Assets\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\CreaseShadingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\DepthOfFieldEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\EdgeDetectionEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
      <Compile Include="Assets\InstantGui\Scripts\Editor\Elements\InstantGuiButtonEditor.cs" />
      <Compile Include="Assets\InstantGui\Scripts\Editor\Elements\InstantGuiInputTextEditor.cs" />
      <Compile Include="Assets\InstantGui\Scripts\Editor\Elements\InstantGuiListEditor.cs" />
@@ -89,6 +87,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />
+     <None Include="Assets\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\VignettingShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
@@ -103,6 +102,8 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
      <None Include="Assets\Standard Assets\Vehicles\Aircraft\AircraftGuidelines.txt" />
+     <None Include="Assets\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
+     <None Include="Assets\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
      <None Include="Assets\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpecTransp.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
@@ -138,6 +139,7 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
+     <None Include="Assets\NatureStarterKit\info.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
@@ -170,9 +172,13 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>C:/Users/Public.PRITAM/Documents/MagMates/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

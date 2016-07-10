@@ -11,6 +11,7 @@ public class pawn_generator : MonoBehaviour {
 	public Material blackMaterial;
 	// Use this for initialization
 	void Awake () {
+		Application.targetFrameRate = 30;
 		Resources.UnloadUnusedAssets();
 		for(int i = 0; i < 6; i++){
 			GameObject tempObj1 = Instantiate(IronPawn, new Vector3(4.5f, 0.5f, -1.5f + (float)i), Quaternion.identity) as GameObject;
