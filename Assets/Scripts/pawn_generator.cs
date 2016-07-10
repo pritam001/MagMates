@@ -28,6 +28,9 @@ public class pawn_generator : MonoBehaviour {
 			game_controller.boardMatrix[j,2] = 2;
 			game_controller.boardMatrix[j,5] = 6;
 		}
+
+		// Set game_started flag on
+		game_controller.game_started = true;
 	}
 
 	IEnumerator MoveFromTo(GameObject gameObject, Vector3 vectorFrom, Vector3 vectorTo, float time){

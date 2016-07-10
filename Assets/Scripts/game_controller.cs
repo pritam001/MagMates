@@ -6,6 +6,9 @@ public class game_controller : MonoBehaviour {
 	public static int[,] boardMatrix = new int[,]{ { -1, -1, -1, -1, -1, -1, -1, -1}, { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, 0, 0, 0, 0, 0, 0, -1},  { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, 0, 0, 0, 0, 0, 0, -1},  { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, -1, -1, -1, -1, -1, -1, -1}};
 	// playerNo decides which players turn it is (1 or 2)
 	public static int playerNo;
+	public static bool game_started = false;
+	public static bool game_ended = false;
+	public static bool game_paused = false;
 
 	public Transform target;//the target object
 	public GameObject mainCamera;
