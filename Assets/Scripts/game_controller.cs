@@ -45,4 +45,8 @@ public class game_controller : MonoBehaviour {
 			yield return null;
 		}
 	}
+
+	public static void playerWon(int playerNum){
+		Debug.Log("Game ended! Player"+playerNum+" has won the game as opponent's magnet got destroyed.");
+	}
 }

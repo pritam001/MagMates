@@ -7,13 +7,16 @@ using System.Collections.Generic;
 
 public class movement_controller : MonoBehaviour {
 
-	public RaycastHit hit_latest, hit_latest2;
 	public Material glass_mat;
 	public Material glow_neon_mat;
 	public Material glow_red_mat;
+
 	public GameObject destructionPrefab;
+
+	public RaycastHit hit_latest, hit_latest2;
 	public int hit_latest_column, hit_latest_row;
 	public int hit_latest2_column, hit_latest2_row;
+
 	private bool correct_pawn_selected = false;	
 	// Use this for initialization
 	void Start () {
@@ -22,8 +25,8 @@ public class movement_controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	if(game_controller.game_started && !game_controller.game_ended && !game_controller.game_paused){	
-		if (Input.GetButtonDown("Fire1")) {
+		if(game_controller.game_started && !game_controller.game_ended && !game_controller.game_paused){	
+			if (Input.GetButtonDown("Fire1")) {
 				glowOff();
 				correct_pawn_selected = false;
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -113,6 +116,7 @@ public class movement_controller : MonoBehaviour {
 								Debug.Log("Cell next to plastic is empty. Plastic gets pushed.");
 								push_pawn(hit_latest_row + z_value, hit_latest_column + x_value, z_value, x_value);
 								push_pawn(hit_latest_row, hit_latest_column, z_value, x_value);
+								game_controller.changePlayer();
 							}
 							
 						} else if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] > 0f){
@@ -145,6 +149,7 @@ public class movement_controller : MonoBehaviour {
 				// You have to re-left-click to move again
 				correct_pawn_selected = false;
 			}
+
 		}
 	}
 
@@ -219,6 +224,28 @@ public class movement_controller : MonoBehaviour {
 		GameObject blastObj = Instantiate(destructionPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
 		Destroy(gameObject);
 		Debug.Log("Player" + playerNumber + "'s " + hit_latest.transform.gameObject.name + " self destroyed.");
+		// Check if a magnet was destroyed, then set game_ended flag + show winning animation
+		bool magnet1_exists = false;
+		bool magnet2_exists = false;
+		for(int i=1; i<7; i++){
+			for(int j=1; j<7; j++){
+				if(game_controller.boardMatrix[i,j] == 1){
+					magnet1_exists = true;
+				}
+				if(game_controller.boardMatrix[i,j] == 5){
+					magnet2_exists = true;
+				}
+			}
+		}
+		if(!magnet2_exists){
+			game_controller.playerWon(1);
+			game_controller.game_ended = true;
+		}
+		if(!magnet1_exists){
+			game_controller.playerWon(2);
+			game_controller.game_ended = true;
+		}
+		// Wait 2 seconds, then destroy the Explosion Prefab
 		yield return new WaitForSeconds(2f);
 		Destroy(blastObj);
 	} 
