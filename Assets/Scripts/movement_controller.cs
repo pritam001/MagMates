@@ -226,23 +226,39 @@ public class movement_controller : MonoBehaviour {
 		Debug.Log("Player" + playerNumber + "'s " + hit_latest.transform.gameObject.name + " self destroyed.");
 		// Check if a magnet was destroyed, then set game_ended flag + show winning animation
 		bool magnet1_exists = false;
+		bool iron1_exists = false;
 		bool magnet2_exists = false;
+		bool iron2_exists = false;
 		for(int i=1; i<7; i++){
 			for(int j=1; j<7; j++){
 				if(game_controller.boardMatrix[i,j] == 1){
 					magnet1_exists = true;
 				}
+				if(game_controller.boardMatrix[i,j] == 2){
+					iron1_exists = true;
+				}
 				if(game_controller.boardMatrix[i,j] == 5){
 					magnet2_exists = true;
+				}
+				if(game_controller.boardMatrix[i,j] == 6){
+					iron2_exists = true;
 				}
 			}
 		}
 		if(!magnet2_exists){
-			GetComponent<game_controller>().playerWon(1);
+			GetComponent<game_controller>().playerWon(1, 1);
 			game_controller.game_ended = true;
 		}
 		if(!magnet1_exists){
-			GetComponent<game_controller>().playerWon(2);
+			GetComponent<game_controller>().playerWon(1, 2);
+			game_controller.game_ended = true;
+		}
+		if(!iron2_exists){
+			GetComponent<game_controller>().playerWon(2, 1);
+			game_controller.game_ended = true;
+		}
+		if(!iron1_exists){
+			GetComponent<game_controller>().playerWon(2, 2);
 			game_controller.game_ended = true;
 		}
 		// Wait 2 seconds, then destroy the Explosion Prefab

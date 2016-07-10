@@ -48,8 +48,12 @@ public class game_controller : MonoBehaviour {
 		}
 	}
 
-	public void playerWon(int playerNum){
-		Debug.Log("Game ended! Player"+playerNum+" has won the game as opponent's magnet got destroyed.");
+	public void playerWon(int winCondition, int playerNum){
+		if(winCondition == 1){
+			Debug.Log("Game ended! Player"+playerNum+" has won the game as opponent's magnet got destroyed.");
+		} else if (winCondition == 2){
+			Debug.Log("Game ended! Player"+playerNum+" has won the game as opponent doesn't have any more Irons.");
+		} 
 		gameEndAnimation.SetBool("game_ended", true);
 	}
 }
