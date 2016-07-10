@@ -246,7 +246,7 @@ public class movement_controller : MonoBehaviour {
 			game_controller.game_ended = true;
 		}
 		// Wait 2 seconds, then destroy the Explosion Prefab
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(5f);
 		Destroy(blastObj);
 	} 
 }
