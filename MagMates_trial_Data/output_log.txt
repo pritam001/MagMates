@@ -17,17 +17,83 @@ Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\Un
 Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.050 seconds
+- Completed reload, in  0.132 seconds
 desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\System.dll (this message is harmless)
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 672.
-Total: 0.184310 ms (FindLiveObjects: 0.068421 ms CreateObjectMapping: 0.023092 ms MarkObjects: 0.087237 ms  DeleteObjects: 0.004703 ms)
-
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1c874 -> priority: 1 
-  Thread -> id: 1d214 -> priority: 1 
+  Thread -> id: 30fd0 -> priority: 1 
+  Thread -> id: 3070c -> priority: 1 
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 9 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 89 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+UnloadTime: 10.698557 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 968.
+Total: 0.937374 ms (FindLiveObjects: 0.080822 ms CreateObjectMapping: 0.071414 ms MarkObjects: 0.667537 ms  DeleteObjects: 0.116744 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 968.
+Total: 0.855268 ms (FindLiveObjects: 0.092369 ms CreateObjectMapping: 0.073125 ms MarkObjects: 0.682076 ms  DeleteObjects: 0.006414 ms)
+
