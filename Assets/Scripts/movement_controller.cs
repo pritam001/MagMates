@@ -73,7 +73,7 @@ public class movement_controller : MonoBehaviour {
 				}
 			}
 			skip_update_hit_fire1:
-			if (Input.GetButtonDown("Fire2")) {
+			if (Input.GetButtonDown("Fire2") && !game_controller.placing_plastic) {
 				glowOff();
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				if(Physics.Raycast(ray,out hit_latest2,Mathf.Infinity)){
