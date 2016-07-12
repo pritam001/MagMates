@@ -9,6 +9,11 @@ public class pawn_generator : MonoBehaviour {
 
 	public GameObject IronPawn;
 	public Material blackMaterial;
+
+	public Button place_plastic_button;
+	public GameObject plastic1;
+	public GameObject plastic2;
+
 	// Use this for initialization
 	void Awake () {
 		Application.targetFrameRate = 30;
@@ -42,9 +47,53 @@ public class pawn_generator : MonoBehaviour {
 			yield return null;         // Leave the routine and return here in the next frame
 		}
 	}
-	
+
+	public void place_plastic_button_clicked(){
+		if(!game_controller.placing_plastic){
+			game_controller.placing_plastic = true;
+			game_controller.placing_plastic_button_clicked = true;
+		} else {
+			game_controller.placing_plastic = false;
+			game_controller.placing_plastic_button_clicked = true;
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
-		
+		if(game_controller.placing_plastic && game_controller.placing_plastic_button_clicked){
+			// When place_plastic button is clicked and placing_plastic is activated
+			if(game_controller.playerNo == 1){
+				for(int i = 1; i <= 18; i++){
+					int column = (int)(GameObject.Find("GlowGlass" + i).transform.position.x + 0.5f);
+					int row = (int)(GameObject.Find("GlowGlass" + i).transform.position.z + 2.5f);
+					if(game_controller.boardMatrix[row,column] == 0){
+						GetComponent<movement_controller>().glowOn(i);
+					}
+				}
+			} else if(game_controller.playerNo == 2){
+				for(int i = 19; i <= 36; i++){
+					int column = (int)(GameObject.Find("GlowGlass" + i).transform.position.x + 0.5f);
+					int row = (int)(GameObject.Find("GlowGlass" + i).transform.position.z + 2.5f);
+					if(game_controller.boardMatrix[row,column] == 0){
+						GetComponent<movement_controller>().glowOn(i);
+					}
+				}
+			} 
+			game_controller.placing_plastic_button_clicked = false;
+		} else if (!game_controller.placing_plastic && game_controller.placing_plastic_button_clicked){
+			// When place_plastic button is clicked and placing_plastic is cancelled
+			GetComponent<movement_controller>().glowOff();
+			game_controller.placing_plastic_button_clicked = false;
+		} 
+
+		if(game_controller.placing_plastic && !game_controller.placing_plastic_button_clicked){
+			// To spawn plastic, when placing_plastic is on and positions are lit
+			if (Input.GetButtonDown("Fire2")) {
+				GetComponent<movement_controller>().glowOff();
+
+			}
+
+			game_controller.placing_plastic = false;
+		}
 	}
 }

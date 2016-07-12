@@ -1345,3 +1345,7 @@ Cmd: compileSnippet
   api=1 type=0 insize=1097 outsize=1252 kw=SHADOWS_CUBE pd= ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=1097 outsize=1087 kw=SHADOWS_CUBE pd= ok=1
+Unhandled exception: Readfile from pipe failed. GLE=The pipe has been ended.
+
+
+Quitting shader compiler process

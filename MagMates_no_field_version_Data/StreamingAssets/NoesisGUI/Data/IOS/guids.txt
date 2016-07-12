@@ -1,0 +1,10 @@
+﻿resources =
+[
+    "47130F8848A7B317F97122B7C00AEFDE", "0x3106ff53", "Drawing/VGL/vgl.shader",
+    "C2FED14B4EE93F696FB2BA80E50E5005", "0x3106ff53", "Drawing/VGL/vglMask.shader",
+    "1F6F960C4EAB923AC20C789B4D09C01B", "0xabcd0248", "Gui/Core/BaseStyle.xaml",
+    "450FCF1D46FEC40F198EDB9CA178EBA8", "0xabcd0248", "Gui/Core/Controls/MessageDialog.xaml",
+    "5F6F960C4EBB923AC20C789B4D09C013", "0xabcd0248", "Gui/Core/DefaultStyle.xaml",
+    "ED7A45D54C8472D1EB8B0D84605E827A", "0x65e0b7b0", "Gui/Core/ModeNine.font",
+    "B16AF66E448BAFAB176CCB8B2C52C327", "0x65e0b7b0", "Gui/Core/Roboto.font"
+]

@@ -9,8 +9,15 @@ public class game_controller : MonoBehaviour {
 	public static bool game_started = false;
 	public static bool game_ended = false;
 	public static bool game_paused = false;
+	public static bool placing_plastic = false;
+	public static bool placing_plastic_button_clicked = false;
+
+	public static int p1_plastic_remaining = 3;
+	public static int p2_plastic_remaining = 3;
 
 	public Animator gameEndAnimation;
+	public GameObject fireworks;
+	public bool firework_started = false;
 
 	public Transform target;//the target object
 	public GameObject mainCamera;
@@ -26,6 +33,10 @@ public class game_controller : MonoBehaviour {
 	void Update () {
 		if(total_deg == 0f){
 			StartCoroutine(rotateCam());
+		}
+		if(game_ended && !firework_started){
+			Instantiate(fireworks, new Vector3(3f, -0.5f, 1f), Quaternion.identity);
+			firework_started = true;
 		}
 	}
 

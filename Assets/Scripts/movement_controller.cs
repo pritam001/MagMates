@@ -25,7 +25,7 @@ public class movement_controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(game_controller.game_started && !game_controller.game_ended && !game_controller.game_paused){	
+		if(game_controller.game_started && !game_controller.game_ended && !game_controller.game_paused && !game_controller.placing_plastic){	
 			if (Input.GetButtonDown("Fire1")) {
 				glowOff();
 				correct_pawn_selected = false;
@@ -169,7 +169,7 @@ public class movement_controller : MonoBehaviour {
 
 	}
 
-	void glowOn(int i){
+	public void glowOn(int i){
 		GameObject go = GameObject.Find("GlowGlass" + i);
 		go.GetComponent<Renderer>().material = glow_neon_mat;
 	}
@@ -184,7 +184,7 @@ public class movement_controller : MonoBehaviour {
 		}
 	}
 
-	void glowOff(){
+	public void glowOff(){
 		for(int i = 1; i <= 36; i++){
 			GameObject go = GameObject.Find("GlowGlass" + i);
 			go.GetComponent<Renderer>().material = glass_mat;
