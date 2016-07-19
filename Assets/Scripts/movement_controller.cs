@@ -109,9 +109,11 @@ public class movement_controller : MonoBehaviour {
 							game_controller.changePlayer();
 						} else if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 3 || game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 7){
 							// If selected cell contains plastic
-							if(game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value] > 0){
+							if(game_controller.boardMatrix[hit_latest_row,hit_latest_column] == 3 || game_controller.boardMatrix[hit_latest_row,hit_latest_column] == 7){
+								Debug.Log("Plastic can not move plastic.");
+							} else if(game_controller.boardMatrix[hit_latest2_row + z_value,hit_latest2_column + x_value] > 0){
 								Debug.Log("Cell next to plastic is not empty.");
-								Debug.Log("boardMatrix[" + (hit_latest_row + z_value) + "," + (hit_latest_column + x_value) + "] = " + game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value]);
+								Debug.Log("boardMatrix[" + (hit_latest2_row + z_value) + "," + (hit_latest2_column + x_value) + "] = " + game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value]);
 							} else {
 								Debug.Log("Cell next to plastic is empty. Plastic gets pushed.");
 								push_pawn(hit_latest_row + z_value, hit_latest_column + x_value, z_value, x_value);
@@ -198,9 +200,11 @@ public class movement_controller : MonoBehaviour {
 						game_controller.changePlayer();
 					} else if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 3 || game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 7){
 						// If selected cell contains plastic
-						if(game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value] > 0){
+						if(game_controller.boardMatrix[hit_latest_row,hit_latest_column] == 3 || game_controller.boardMatrix[hit_latest_row,hit_latest_column] == 7){
+							Debug.Log("Plastic can not move plastic.");
+						} else if(game_controller.boardMatrix[hit_latest2_row + z_value,hit_latest2_column + x_value] > 0){
 							Debug.Log("Cell next to plastic is not empty.");
-							Debug.Log("boardMatrix[" + (hit_latest_row + z_value) + "," + (hit_latest_column + x_value) + "] = " + game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value]);
+							Debug.Log("boardMatrix[" + (hit_latest2_row + z_value) + "," + (hit_latest2_column + x_value) + "] = " + game_controller.boardMatrix[hit_latest_row + z_value,hit_latest_column + x_value]);
 						} else {
 							Debug.Log("Cell next to plastic is empty. Plastic gets pushed.");
 							push_pawn(hit_latest_row + z_value, hit_latest_column + x_value, z_value, x_value);
