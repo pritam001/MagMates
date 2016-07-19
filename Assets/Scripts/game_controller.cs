@@ -10,7 +10,7 @@ public class game_controller : MonoBehaviour {
 	public static bool game_ended = false;
 	public static bool game_paused = false;
 	public static bool placing_plastic = false;
-	public static bool placing_plastic_button_clicked = false;
+	public static bool placing_plastic_button_clicked = false; // True whenever the button is clicked
 	public static bool placed_plastic_moved = true;
 
 	public static int p1_plastic_remaining = 3;

@@ -175,7 +175,7 @@ public class movement_controller : MonoBehaviour {
 	}
 
 	// Red Glow shows positions where self destruction occurs
-	void redGlowOn(int i){
+	public void redGlowOn(int i){
 		GameObject go = GameObject.Find("GlowGlass-" + i);
 		go.GetComponent<Renderer>().material = glow_red_mat;
 		if(i == 1|| i == 6 || i == 31 || i == 36){

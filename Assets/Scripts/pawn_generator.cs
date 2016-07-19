@@ -13,6 +13,7 @@ public class pawn_generator : MonoBehaviour {
 	public Button place_plastic_button;
 	public GameObject plastic1;
 	public GameObject plastic2;
+	public GameObject plastic_placing_anim;
 
 	// Use this for initialization
 	void Awake () {
@@ -58,6 +59,37 @@ public class pawn_generator : MonoBehaviour {
 			game_controller.placing_plastic = false;
 			game_controller.placing_plastic_button_clicked = true;
 		}
+		// Debug : if plastic is placed, not moved and button is clicked
+	}
+
+	IEnumerator placing_plastic(Transform temp_hit_transform){
+		GameObject go = Instantiate(plastic_placing_anim, new Vector3(temp_hit_transform.position.x, 1.2f, temp_hit_transform.position.z), Quaternion.identity) as GameObject;
+		// Show available places to move plastic
+		int i = (int)((temp_hit_transform.position.x - 0.5f)*6 + (temp_hit_transform.position.z + 2.5f));
+		if(i + 6 <= 36){
+			GetComponent<movement_controller>().glowOn(i + 6);
+		}
+		if(i - 6 > 0){
+			GetComponent<movement_controller>().glowOn(i - 6);
+		}
+		if(i % 6 != 0){
+			GetComponent<movement_controller>().glowOn(i + 1);
+		} else {
+			GetComponent<movement_controller>().redGlowOn(i);
+		}
+		if((i-1) % 6 != 0){
+			GetComponent<movement_controller>().glowOn(i - 1);
+		} else {
+			GetComponent<movement_controller>().redGlowOn(i);
+		}
+		if(i <= 6 || i >= 31){
+			GetComponent<movement_controller>().redGlowOn(i);
+		}
+
+		game_controller.placed_plastic_moved = false;
+		yield return new WaitForSeconds(1f);
+		Destroy(go);
+		yield return null;
 	}
 
 	// Update is called once per frame
@@ -90,7 +122,9 @@ public class pawn_generator : MonoBehaviour {
 			game_controller.placing_plastic_button_clicked = false;
 		} 
 
-		if (Input.GetButtonDown("Fire2") && game_controller.placing_plastic) {
+		// While placing_plastic is on and right clicked to place the plastic pawn
+		if (Input.GetButtonDown("Fire2") && game_controller.placing_plastic && game_controller.placed_plastic_moved) {
+			// Debug : if right clicked on wrong position
 			GetComponent<movement_controller>().glowOff();
 			RaycastHit t_hit, temp_hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -104,12 +138,14 @@ public class pawn_generator : MonoBehaviour {
 						Debug.Log("Player" + game_controller.playerNo + " placed plastic at [" + temp_row + "," + temp_column + "]");
 						Instantiate(plastic1, new Vector3(temp_hit.transform.position.x, 0.8f, temp_hit.transform.position.z), Quaternion.identity);
 						game_controller.boardMatrix[temp_row, temp_column] = 3;
-						game_controller.placed_plastic_moved = false;
+					
+						StartCoroutine(placing_plastic(temp_hit.transform));
 					} else if(game_controller.playerNo == 2 && temp_i > 18 && temp_i <= 36){
 						Debug.Log("Player" + game_controller.playerNo + " placed plastic at [" + temp_row + "," + temp_column + "]");
 						Instantiate(plastic2, new Vector3(temp_hit.transform.position.x, 0.8f, temp_hit.transform.position.z), Quaternion.identity);
 						game_controller.boardMatrix[temp_row, temp_column] = 7;
-						game_controller.placed_plastic_moved = false;
+						
+						StartCoroutine(placing_plastic(temp_hit.transform));
 					} else {
 						Debug.Log("Can not place plastic there.");
 					}
@@ -118,6 +154,7 @@ public class pawn_generator : MonoBehaviour {
 				}
 			}
 		}
+		
 
 
 	}
