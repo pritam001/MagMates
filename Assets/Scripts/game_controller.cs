@@ -10,6 +10,7 @@ public class game_controller : MonoBehaviour {
 	public static int[,] boardMatrix = new int[,]{ { -1, -1, -1, -1, -1, -1, -1, -1}, { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, 0, 0, 0, 0, 0, 0, -1},  { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, 0, 0, 0, 0, 0, 0, -1},  { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, 0, 0, 0, 0, 0, 0, -1}, { -1, -1, -1, -1, -1, -1, -1, -1}};
 	// playerNo decides which players turn it is (1 or 2)
 	public static int playerNo;
+	public Text player_no_text;
 	public static bool game_started = false;
 	public static bool game_ended = false;
 	public static bool game_paused = false;
@@ -33,12 +34,14 @@ public class game_controller : MonoBehaviour {
 	private static float total_deg = 180f;
 
 	void Start () {//Set up things on the start method
+		player_no_text.text = "Player " + playerNo;
 		point = target.transform.position;//get target's coords
 		mainCamera.transform.LookAt(point);//makes the camera look to it 
 	}
 	
 	void Update () {
 		if(total_deg == 0f){
+			player_no_text.text = "Player " + playerNo;
 			StartCoroutine(rotateCam());
 			update_plastic_count();
 		}
