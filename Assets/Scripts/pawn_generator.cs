@@ -36,6 +36,8 @@ public class pawn_generator : MonoBehaviour {
 			game_controller.boardMatrix[j,5] = 6;
 		}
 
+		// Initialize plastic count text
+		GetComponent<game_controller>().update_plastic_count();
 		// Set game_started flag on
 		game_controller.game_started = true;
 	}
@@ -50,15 +52,20 @@ public class pawn_generator : MonoBehaviour {
 	}
 
 	public void place_plastic_button_clicked(){
-		// Debugged : if plastic is placed, not moved and button is clicked
-		if(!game_controller.placing_plastic && game_controller.placed_plastic_moved){
-			Debug.Log("Place plastic mode on. Place plastic clicked.");
-			game_controller.placing_plastic = true;
-			game_controller.placing_plastic_button_clicked = true;
-		} else if(game_controller.placing_plastic && game_controller.placed_plastic_moved){
-			Debug.Log("Place plastic mode off. Place plastic clicked.");
-			game_controller.placing_plastic = false;
-			game_controller.placing_plastic_button_clicked = true;
+		// If plastic count is > zero, enter place plastic phase
+		if((game_controller.playerNo == 1 && game_controller.p1_plastic_remaining > 0) || (game_controller.playerNo == 2 && game_controller.p2_plastic_remaining > 0)){
+			// Debugged : if plastic is placed, not moved and button is clicked
+			if(!game_controller.placing_plastic && game_controller.placed_plastic_moved){
+				Debug.Log("Place plastic mode on. Place plastic clicked.");
+				game_controller.placing_plastic = true;
+				game_controller.placing_plastic_button_clicked = true;
+			} else if(game_controller.placing_plastic && game_controller.placed_plastic_moved){
+				Debug.Log("Place plastic mode off. Place plastic clicked.");
+				game_controller.placing_plastic = false;
+				game_controller.placing_plastic_button_clicked = true;
+			}
+		} else {
+			Debug.Log("No more plastic remaining for player"+game_controller.playerNo+".");
 		}
 	}
 
