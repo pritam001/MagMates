@@ -12,6 +12,7 @@ public class game_controller : MonoBehaviour {
 	public static bool placing_plastic = false;
 	public static bool placing_plastic_button_clicked = false; // True whenever the button is clicked
 	public static bool placed_plastic_moved = true;
+	public static Vector3 latest_plastic_position = Vector3.zero;
 
 	public static int p1_plastic_remaining = 3;
 	public static int p2_plastic_remaining = 3;
@@ -58,6 +59,13 @@ public class game_controller : MonoBehaviour {
 			total_deg += 18 * Time.deltaTime * speedMod;
 			yield return null;
 		}
+	}
+
+	public static void plastic_placed(){
+		placing_plastic = false;
+		placing_plastic_button_clicked = false;
+		placed_plastic_moved = true;
+		latest_plastic_position = Vector3.zero;
 	}
 
 	public void playerWon(int winCondition, int playerNum){

@@ -67,6 +67,8 @@ public class pawn_generator : MonoBehaviour {
 		GetComponent<movement_controller>().glowOff();
 
 		GameObject go = Instantiate(plastic_placing_anim, new Vector3(temp_hit_transform.position.x, 1.2f, temp_hit_transform.position.z), Quaternion.identity) as GameObject;
+		// Update currently placed plastic's position (to be used for movement of that plastic)
+		game_controller.latest_plastic_position = temp_hit_transform.position;
 		// Show available places to move plastic
 		int i = (int)((temp_hit_transform.position.x - 0.5f)*6 + (temp_hit_transform.position.z + 2.5f));
 		if(i + 6 <= 36){
@@ -90,6 +92,7 @@ public class pawn_generator : MonoBehaviour {
 		}
 
 		game_controller.placed_plastic_moved = false;
+		//game_controller.p2_plastic_remaining -= 1;
 		yield return new WaitForSeconds(1f);
 		Destroy(go);
 		yield return null;
@@ -155,12 +158,6 @@ public class pawn_generator : MonoBehaviour {
 				}
 			}
 		}
-
-		// If placing_plastic is on and plastic pawn is placed, but not moved yet
-		if (Input.GetButtonDown("Fire2") && game_controller.placing_plastic && !game_controller.placed_plastic_moved) {
-			Debug.Log("Neew");
-		}
-
 
 	}
 }
