@@ -15,6 +15,8 @@ public class pawn_generator : MonoBehaviour {
 	public GameObject plastic2;
 	public GameObject plastic_placing_anim;
 
+	public AudioSource pawn_appearing_sound;
+
 	// Use this for initialization
 	void Awake () {
 		Application.targetFrameRate = 30;
@@ -25,6 +27,7 @@ public class pawn_generator : MonoBehaviour {
 			GameObject tempObj2 = Instantiate(IronPawn, new Vector3(1.5f, 0.5f, -0.5f + (float)i), Quaternion.identity) as GameObject;
 			tempObj2.GetComponent<Renderer>().material = blackMaterial;
 			StartCoroutine(MoveFromTo(tempObj2, new Vector3(1.5f, 0.5f, -1.5f + (float)i), new Vector3(1.5f, 1.12f, -1.5f + (float)i), 3f));
+			pawn_appearing_sound.Play();
 		}
 
 		game_controller.playerNo = 1;
@@ -72,6 +75,7 @@ public class pawn_generator : MonoBehaviour {
 	IEnumerator placing_plastic(Transform temp_hit_transform){
 		// Debugged : if right clicked on correct position, glow off
 		GetComponent<movement_controller>().glowOff();
+		pawn_appearing_sound.Play();
 
 		GameObject go = Instantiate(plastic_placing_anim, new Vector3(temp_hit_transform.position.x, 1.2f, temp_hit_transform.position.z), Quaternion.identity) as GameObject;
 		// Update currently placed plastic's position (to be used for movement of that plastic)

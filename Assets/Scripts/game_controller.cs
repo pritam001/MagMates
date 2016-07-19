@@ -23,6 +23,8 @@ public class game_controller : MonoBehaviour {
 	public static int p2_plastic_remaining = 3;
 	public Text plastic_remaining_text;
 
+	public AudioSource player_changed_audio;
+
 	public Animator gameEndAnimation;
 	public GameObject fireworks;
 	public bool firework_started = false;
@@ -42,6 +44,7 @@ public class game_controller : MonoBehaviour {
 	void Update () {
 		if(total_deg == 0f){
 			player_no_text.text = "Player " + playerNo;
+			player_changed_audio.Play();
 			StartCoroutine(rotateCam());
 			update_plastic_count();
 		}

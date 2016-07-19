@@ -17,6 +17,9 @@ public class movement_controller : MonoBehaviour {
 	public int hit_latest_column, hit_latest_row;
 	public int hit_latest2_column, hit_latest2_row;
 
+	public AudioSource destroy_sound;
+	public AudioSource moving_sound;
+
 	private bool correct_pawn_selected = false;	
 	// Use this for initialization
 	void Start () {
@@ -307,6 +310,7 @@ public class movement_controller : MonoBehaviour {
 	IEnumerator moveAnimStep(GameObject gameObject, Vector3 v, float time){
 		float t = 0f;
 		Vector3 vectorStart = gameObject.transform.position;
+		moving_sound.Play();
 		while (t < time) {
 			t += Time.deltaTime; // Sweeps from 0 to time in seconds
 			gameObject.transform.position = Vector3.Lerp(vectorStart, vectorStart + v, t);
@@ -318,6 +322,7 @@ public class movement_controller : MonoBehaviour {
 		yield return new WaitForSeconds(1.05f); // this will wait > 1 seconds
 		GameObject blastObj = Instantiate(destructionPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
 		Destroy(gameObject);
+		destroy_sound.Play();
 		Debug.Log("Player" + playerNumber + "'s " + hit_latest.transform.gameObject.name + " self destroyed.");
 		// Check if a magnet was destroyed, then set game_ended flag + show winning animation
 		bool magnet1_exists = false;
