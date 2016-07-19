@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System;
 using System.Collections;
+using System.IO;
+using System.Collections.Generic;
 
 public class game_controller : MonoBehaviour {
 	// boardMatrix stores data about the board, where the pawns are placed and helps to decide valid moves
@@ -16,6 +20,7 @@ public class game_controller : MonoBehaviour {
 
 	public static int p1_plastic_remaining = 3;
 	public static int p2_plastic_remaining = 3;
+	public Text plastic_remaining_text;
 
 	public Animator gameEndAnimation;
 	public GameObject fireworks;
@@ -35,6 +40,7 @@ public class game_controller : MonoBehaviour {
 	void Update () {
 		if(total_deg == 0f){
 			StartCoroutine(rotateCam());
+			update_plastic_count();
 		}
 		if(game_ended && !firework_started){
 			Instantiate(fireworks, new Vector3(3f, -0.5f, 1f), Quaternion.identity);
@@ -61,11 +67,21 @@ public class game_controller : MonoBehaviour {
 		}
 	}
 
+	// Call when placed plastic is moved
 	public static void plastic_placed(){
 		placing_plastic = false;
 		placing_plastic_button_clicked = false;
 		placed_plastic_moved = true;
 		latest_plastic_position = Vector3.zero;
+	}
+
+	// Call when plastic is placed
+	public void update_plastic_count(){
+		if(playerNo == 1){
+			plastic_remaining_text.text = "x " + p1_plastic_remaining.ToString();
+		} else if(playerNo == 2){
+			plastic_remaining_text.text = "x " + p2_plastic_remaining.ToString();
+		}
 	}
 
 	public void playerWon(int winCondition, int playerNum){

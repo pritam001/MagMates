@@ -91,8 +91,16 @@ public class pawn_generator : MonoBehaviour {
 			GetComponent<movement_controller>().redGlowOn(i);
 		}
 
+		// Reduce remaining plastic count
+		if(game_controller.playerNo == 1){
+			game_controller.p1_plastic_remaining -= 1;
+			Debug.Log("p1_plastic_remaining -= 1");
+		} else if(game_controller.playerNo == 2){
+			game_controller.p2_plastic_remaining -= 1;
+			Debug.Log("p2_plastic_remaining -= 1");
+		}
+
 		game_controller.placed_plastic_moved = false;
-		//game_controller.p2_plastic_remaining -= 1;
 		yield return new WaitForSeconds(1f);
 		Destroy(go);
 		yield return null;
@@ -157,6 +165,7 @@ public class pawn_generator : MonoBehaviour {
 					Debug.Log("Can not place plastic there.");
 				}
 			}
+			GetComponent<game_controller>().update_plastic_count();
 		}
 
 	}

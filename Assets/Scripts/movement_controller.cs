@@ -205,6 +205,7 @@ public class movement_controller : MonoBehaviour {
 							Debug.Log("Cell next to plastic is empty. Plastic gets pushed.");
 							push_pawn(hit_latest_row + z_value, hit_latest_column + x_value, z_value, x_value);
 							push_pawn(hit_latest_row, hit_latest_column, z_value, x_value);
+							glowOff();
 							game_controller.plastic_placed();
 							game_controller.changePlayer();
 						}
@@ -231,6 +232,7 @@ public class movement_controller : MonoBehaviour {
 								push_pawn(hit_latest_row + (i-1)*z_value, hit_latest_column + (i-1)*x_value, z_value, x_value);
 							}
 							Debug.Log("Pushing all the pawns in the path.");
+							glowOff();
 							game_controller.plastic_placed();
 							game_controller.changePlayer();
 						}
