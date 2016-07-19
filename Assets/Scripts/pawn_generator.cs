@@ -63,6 +63,9 @@ public class pawn_generator : MonoBehaviour {
 	}
 
 	IEnumerator placing_plastic(Transform temp_hit_transform){
+		// Debug : if right clicked on correct position, glow off
+		GetComponent<movement_controller>().glowOff();
+
 		GameObject go = Instantiate(plastic_placing_anim, new Vector3(temp_hit_transform.position.x, 1.2f, temp_hit_transform.position.z), Quaternion.identity) as GameObject;
 		// Show available places to move plastic
 		int i = (int)((temp_hit_transform.position.x - 0.5f)*6 + (temp_hit_transform.position.z + 2.5f));
@@ -124,8 +127,6 @@ public class pawn_generator : MonoBehaviour {
 
 		// While placing_plastic is on and right clicked to place the plastic pawn
 		if (Input.GetButtonDown("Fire2") && game_controller.placing_plastic && game_controller.placed_plastic_moved) {
-			// Debug : if right clicked on wrong position
-			GetComponent<movement_controller>().glowOff();
 			RaycastHit t_hit, temp_hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out t_hit,Mathf.Infinity)){
@@ -154,7 +155,11 @@ public class pawn_generator : MonoBehaviour {
 				}
 			}
 		}
-		
+
+		// If placing_plastic is on and plastic pawn is placed, but not moved yet
+		if (Input.GetButtonDown("Fire2") && game_controller.placing_plastic && !game_controller.placed_plastic_moved) {
+			Debug.Log("Neew");
+		}
 
 
 	}
