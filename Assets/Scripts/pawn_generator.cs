@@ -50,20 +50,20 @@ public class pawn_generator : MonoBehaviour {
 	}
 
 	public void place_plastic_button_clicked(){
-		if(!game_controller.placing_plastic){
+		// Debugged : if plastic is placed, not moved and button is clicked
+		if(!game_controller.placing_plastic && game_controller.placed_plastic_moved){
 			Debug.Log("Place plastic mode on. Place plastic clicked.");
 			game_controller.placing_plastic = true;
 			game_controller.placing_plastic_button_clicked = true;
-		} else {
+		} else if(game_controller.placing_plastic && game_controller.placed_plastic_moved){
 			Debug.Log("Place plastic mode off. Place plastic clicked.");
 			game_controller.placing_plastic = false;
 			game_controller.placing_plastic_button_clicked = true;
 		}
-		// Debug : if plastic is placed, not moved and button is clicked
 	}
 
 	IEnumerator placing_plastic(Transform temp_hit_transform){
-		// Debug : if right clicked on correct position, glow off
+		// Debugged : if right clicked on correct position, glow off
 		GetComponent<movement_controller>().glowOff();
 
 		GameObject go = Instantiate(plastic_placing_anim, new Vector3(temp_hit_transform.position.x, 1.2f, temp_hit_transform.position.z), Quaternion.identity) as GameObject;
