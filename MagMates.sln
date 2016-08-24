@@ -7,6 +7,8 @@ Project("{2F51534E-5D44-2A45-988D-7C983EC0D300}") = "MagMates", "Assembly-CSharp
 EndProject
 Project("{2F51534E-5D44-2A45-988D-7C983EC0D300}") = "MagMates", "Assembly-CSharp-Editor.csproj", "{09A5108D-3C04-038F-7B98-22F15528F2F9}"
 EndProject
+Project("{2F51534E-5D44-2A45-988D-7C983EC0D300}") = "MagMates", "Assembly-UnityScript.unityproj", "{72319B97-24D1-D89C-B6C1-FFDC60355035}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{09A5108D-3C04-038F-7B98-22F15528F2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09A5108D-3C04-038F-7B98-22F15528F2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09A5108D-3C04-038F-7B98-22F15528F2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72319B97-24D1-D89C-B6C1-FFDC60355035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72319B97-24D1-D89C-B6C1-FFDC60355035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72319B97-24D1-D89C-B6C1-FFDC60355035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72319B97-24D1-D89C-B6C1-FFDC60355035}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal
