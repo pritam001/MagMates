@@ -29,6 +29,13 @@ public class game_controller : MonoBehaviour {
 	public GameObject fireworks;
 	public bool firework_started = false;
 
+	// game rule modifier variables
+	public bool polarization_rule_on = true;
+	public bool magnet_pole_rule_on = true;
+	public bool swap_rule_on = true;
+	public bool swapping_preferred = false;
+	public Text swapping_text;
+
 	public Transform target;//the target object
 	public GameObject mainCamera;
 	private float speedMod = 10.0f;//a speed modifier
@@ -87,6 +94,20 @@ public class game_controller : MonoBehaviour {
 			plastic_remaining_text.text = "x " + p1_plastic_remaining.ToString();
 		} else if(playerNo == 2){
 			plastic_remaining_text.text = "x " + p2_plastic_remaining.ToString();
+		}
+	}
+
+	public void on_swap_btnclick(){
+		if (swap_rule_on && swapping_preferred) {
+			swapping_preferred = false;
+			swapping_text.text = "Off";
+		} else if (swap_rule_on && !swapping_preferred) {
+			swapping_preferred = true;
+			swapping_text.text = "On";
+		} else if (!swap_rule_on) {
+			Debug.Log ("Swapping not allowed in this game.");
+			//swapping_preferred = false;
+			//swapping_text.text = "Off";
 		}
 	}
 

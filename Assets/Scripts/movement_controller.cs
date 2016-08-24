@@ -93,7 +93,7 @@ public class movement_controller : MonoBehaviour {
 						z_value = (int)(Mathf.Abs(hit_latest2.transform.position.z - hit_latest.transform.position.z)/(hit_latest2.transform.position.z - hit_latest.transform.position.z));
 					}
 	
-					if(distance == 1 && correct_pawn_selected){
+					if(distance == 1 && correct_pawn_selected && !GetComponent<game_controller>().swapping_preferred){
 						if(game_controller.boardMatrix[hit_latest2_row,hit_latest2_column] == 0){
 							// If selected cell is empty, move to that cell
 							Debug.Log("boardMatrix["+hit_latest_row+","+hit_latest_column+"] = " + game_controller.boardMatrix[hit_latest_row,hit_latest_column] + " moving to empty cell " + "boardMatrix["+hit_latest2_row+","+hit_latest2_column+"] = " + game_controller.boardMatrix[hit_latest2_row,hit_latest2_column]);
@@ -148,6 +148,23 @@ public class movement_controller : MonoBehaviour {
 								Debug.Log("Pushing all the pawns in the path.");
 								game_controller.changePlayer();
 							}
+						}
+					}
+
+					// if swapping is on
+					if (distance == 1 && correct_pawn_selected && GetComponent<game_controller>().swapping_preferred) {
+						// Player1 swaps
+						if (game_controller.boardMatrix [hit_latest_row, hit_latest_column] == 1 && game_controller.boardMatrix [hit_latest2_row, hit_latest2_column] == 2) {
+							Debug.Log ("Player1 swaps");
+							swap_pawn (hit_latest_row, hit_latest_column, hit_latest2_row - hit_latest_row, hit_latest2_column - hit_latest_column);
+							game_controller.changePlayer ();
+						} // Player2 swaps
+						else if (game_controller.boardMatrix [hit_latest_row, hit_latest_column] == 5 && game_controller.boardMatrix [hit_latest2_row, hit_latest2_column] == 6) {
+							Debug.Log ("Player2 swaps");
+							swap_pawn (hit_latest_row, hit_latest_column, hit_latest2_row - hit_latest_row, hit_latest2_column - hit_latest_column);
+							game_controller.changePlayer ();
+						} else {
+							Debug.Log ("Swap not possible!");
 						}
 					}
 				}
@@ -263,6 +280,35 @@ public class movement_controller : MonoBehaviour {
 			game_controller.boardMatrix[row_num, col_num] = 0;
 			StartCoroutine(moveAnimStep(temp_hit.transform.gameObject, new Vector3(x,0,z), 1f));
 			StartCoroutine(destroyPawn(temp_hit.transform.gameObject, game_controller.playerNo));
+		}
+
+	}
+
+	// Swap the pawn of selected row and column using z and x as unit directions
+	void swap_pawn(int row_num,int col_num,int z,int x){
+		RaycastHit temp_hit, temp_hit2;
+		Physics.Raycast( new Vector3 (col_num - 0.5f, 5f, row_num - 2.5f), Vector3.down,out temp_hit,Mathf.Infinity);
+		Physics.Raycast( new Vector3 (col_num + x - 0.5f, 5f, row_num + z - 2.5f), Vector3.down,out temp_hit2,Mathf.Infinity);
+		if(game_controller.boardMatrix[row_num + z, col_num + x] == 1){
+			game_controller.boardMatrix[row_num + z, col_num + x] = 2;
+			game_controller.boardMatrix[row_num, col_num] = 1;
+			StartCoroutine(moveAnimStep(temp_hit.transform.gameObject, new Vector3(x,0,z), 1f));
+			StartCoroutine(moveAnimStep(temp_hit2.transform.gameObject, new Vector3(-x,0,-z), 1f));
+		} else if(game_controller.boardMatrix[row_num + z, col_num + x] == 2){
+			game_controller.boardMatrix [row_num + z, col_num + x] = 1;
+			game_controller.boardMatrix[row_num, col_num] = 2;
+			StartCoroutine(moveAnimStep(temp_hit.transform.gameObject, new Vector3(x,0,z), 1f));
+			StartCoroutine(moveAnimStep(temp_hit2.transform.gameObject, new Vector3(-x,0,-z), 1f));
+		} else if(game_controller.boardMatrix[row_num + z, col_num + x] == 5){
+			game_controller.boardMatrix[row_num + z, col_num + x] = 6;
+			game_controller.boardMatrix[row_num, col_num] = 5;
+			StartCoroutine(moveAnimStep(temp_hit.transform.gameObject, new Vector3(x,0,z), 1f));
+			StartCoroutine(moveAnimStep(temp_hit2.transform.gameObject, new Vector3(-x,0,-z), 1f));
+		} else if(game_controller.boardMatrix[row_num + z, col_num + x] == 6){
+			game_controller.boardMatrix[row_num + z, col_num + x] = 5;
+			game_controller.boardMatrix[row_num, col_num] = 6;
+			StartCoroutine(moveAnimStep(temp_hit.transform.gameObject, new Vector3(x,0,z), 1f));
+			StartCoroutine(moveAnimStep(temp_hit2.transform.gameObject, new Vector3(-x,0,-z), 1f));
 		}
 
 	}
