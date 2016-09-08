@@ -29,6 +29,11 @@ public class game_controller : MonoBehaviour {
 	public GameObject fireworks;
 	public bool firework_started = false;
 
+	// Game cameras to switch between top and side view
+	public Camera sideCam, topCam;
+	public static Camera activeCam;
+	public bool topViewOn = false;
+
 	// game rule modifier variables
 	public bool polarization_rule_on = true;
 	public bool magnet_pole_rule_on = true;
@@ -43,6 +48,8 @@ public class game_controller : MonoBehaviour {
 	private static float total_deg = 180f;
 
 	void Start () {//Set up things on the start method
+		activeCam = Camera.main;
+
 		player_no_text.text = "Player " + playerNo;
 		point = target.transform.position;//get target's coords
 		mainCamera.transform.LookAt(point);//makes the camera look to it 
@@ -108,6 +115,34 @@ public class game_controller : MonoBehaviour {
 			Debug.Log ("Swapping not allowed in this game.");
 			//swapping_preferred = false;
 			//swapping_text.text = "Off";
+		}
+	}
+
+	public void on_viewchanger_click(){
+		if (!topViewOn) {
+			Vector3 nextPos = topCam.transform.position;
+			nextPos.y += 5f;
+			topCam.transform.position = nextPos;
+
+			topCam.pixelRect = new Rect (0, 0, Screen.width, Screen.height);
+			topCam.depth = -1;
+			sideCam.pixelRect = new Rect (0, Screen.height - (float)(0.33 * Screen.height), (float)(0.25 * Screen.width), (float)(0.33 * Screen.height));
+			sideCam.depth = 0;
+
+			activeCam = topCam;
+			topViewOn = true;
+		} else {
+			Vector3 nextPos = topCam.transform.position;
+			nextPos.y -= 5f;
+			topCam.transform.position = nextPos;
+
+			sideCam.pixelRect = new Rect (0, 0, Screen.width, Screen.height);
+			sideCam.depth = -1;
+			topCam.pixelRect = new Rect (0, Screen.height - (float)(0.33*Screen.height), (float)(0.25*Screen.width), (float)(0.33*Screen.height));
+			topCam.depth = 0;
+
+			activeCam = sideCam;
+			topViewOn = false;
 		}
 	}
 

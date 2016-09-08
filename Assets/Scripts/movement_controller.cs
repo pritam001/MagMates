@@ -32,7 +32,7 @@ public class movement_controller : MonoBehaviour {
 			if (Input.GetButtonDown("Fire1")) {
 				glowOff();
 				correct_pawn_selected = false;
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				Ray ray = game_controller.activeCam.ScreenPointToRay(Input.mousePosition);
 				if(Physics.Raycast(ray,out hit_latest,Mathf.Infinity)){
 					// Debug: Selection of glass in hit_latest instead of pawn
 					// Re-RayCast using current x and z
@@ -78,7 +78,7 @@ public class movement_controller : MonoBehaviour {
 			skip_update_hit_fire1:
 			if (Input.GetButtonDown("Fire2") && !game_controller.placing_plastic) {
 				glowOff();
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				Ray ray = game_controller.activeCam.ScreenPointToRay(Input.mousePosition);
 				if(Physics.Raycast(ray,out hit_latest2,Mathf.Infinity)){
 					hit_latest2_column = (int)(hit_latest2.transform.position.x + 0.5f);
 					hit_latest2_row = (int)(hit_latest2.transform.position.z + 2.5f);
@@ -181,7 +181,7 @@ public class movement_controller : MonoBehaviour {
 			hit_latest_column = (int)(game_controller.latest_plastic_position.x + 0.5f);
 			hit_latest_row = (int)(game_controller.latest_plastic_position.z + 2.5f);
 
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = game_controller.activeCam.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out hit_latest2,Mathf.Infinity)){
 				hit_latest2_column = (int)(hit_latest2.transform.position.x + 0.5f);
 				hit_latest2_row = (int)(hit_latest2.transform.position.z + 2.5f);

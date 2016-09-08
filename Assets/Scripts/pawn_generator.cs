@@ -150,7 +150,7 @@ public class pawn_generator : MonoBehaviour {
 		// While placing_plastic is on and right clicked to place the plastic pawn
 		if (Input.GetButtonDown("Fire2") && game_controller.placing_plastic && game_controller.placed_plastic_moved) {
 			RaycastHit t_hit, temp_hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = game_controller.activeCam.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out t_hit,Mathf.Infinity)){
 				Physics.Raycast( new Vector3 (t_hit.transform.position.x, 5f, t_hit.transform.position.z), Vector3.down,out temp_hit,Mathf.Infinity);
 				int temp_column = (int)(temp_hit.transform.position.x + 0.5f);
