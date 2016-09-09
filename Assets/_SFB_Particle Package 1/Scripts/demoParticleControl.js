@@ -10,7 +10,7 @@ var shootSpeed			: float			= 12.0;					// Multiplier of Time.deltaTime
 
 
 function Start () {
-	transform.position = startPosition;
+	transform.position = gameObject.transform.position;
 }
 
 function Update () {
