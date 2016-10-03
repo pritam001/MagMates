@@ -77,6 +77,7 @@
      <Compile Include="Assets\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\game_controller.cs" />
+     <Compile Include="Assets\Scripts\move_analysis.cs" />
      <Compile Include="Assets\Scripts\movement_controller.cs" />
      <Compile Include="Assets\Scripts\pawn_generator.cs" />
      <Compile Include="Assets\SpellCraft Assets\Demo\Scripts\SC_ClickButton.cs" />
