@@ -199,13 +199,20 @@ public class movement_controller : MonoBehaviour {
 						if (game_controller.boardMatrix [hit_latest_row, hit_latest_column] == 1 && game_controller.boardMatrix [hit_latest2_row, hit_latest2_column] == 2) {
 							Debug.Log ("Player1 swaps");
 							swap_pawn (hit_latest_row, hit_latest_column, hit_latest2_row - hit_latest_row, hit_latest2_column - hit_latest_column);
+							move_analysis.learning_modifier ("swap", game_controller.playerNo);
 							game_controller.changePlayer ();
 						} // Player2 swaps
 						else if (game_controller.boardMatrix [hit_latest_row, hit_latest_column] == 5 && game_controller.boardMatrix [hit_latest2_row, hit_latest2_column] == 6) {
 							Debug.Log ("Player2 swaps");
 							swap_pawn (hit_latest_row, hit_latest_column, hit_latest2_row - hit_latest_row, hit_latest2_column - hit_latest_column);
+							move_analysis.learning_modifier ("swap", game_controller.playerNo);
 							game_controller.changePlayer ();
 						} else {
+							if(game_controller.boardMatrix [hit_latest2_row, hit_latest2_column] == 3 || game_controller.boardMatrix [hit_latest2_row, hit_latest2_column] == 7){
+								move_analysis.learning_modifier ("plastic_swap", game_controller.playerNo);
+							} else {
+								move_analysis.learning_modifier ("wrong_swap", game_controller.playerNo);
+							}
 							Debug.Log ("Swap not possible!");
 						}
 					}
@@ -293,6 +300,7 @@ public class movement_controller : MonoBehaviour {
 
 						if(plastic_blocks){
 							Debug.Log("Plastic blocked the desired movement.");
+							move_analysis.learning_modifier ("plastic_blocks", game_controller.playerNo);
 						} else {
 							for(;i>0;i--){
 								push_pawn(hit_latest_row + (i-1)*z_value, hit_latest_column + (i-1)*x_value, z_value, x_value);

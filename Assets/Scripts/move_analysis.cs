@@ -21,12 +21,19 @@ public class move_analysis : MonoBehaviour {
 		switch (move) {
 		case "swap":
 			learning_modifier (10, playerNo);
+			Debug.Log ("Analysis: swap => 10 points to player" + playerNo);
 			break;
 		case "wrong_swap":
 			learning_modifier (-5, playerNo);
+			Debug.Log ("Analysis: wrong_swap => -5 points to player" + playerNo);
 			break;
 		case "plastic_swap":
 			learning_modifier (-20, playerNo);
+			Debug.Log ("Analysis: plastic_swap => -20 points to player" + playerNo);
+			break;
+		case "plastic_blocks":
+			learning_modifier (-10, playerNo);
+			Debug.Log ("Analysis: plastic_blocks => -10 points to player" + playerNo);
 			break;
 		default:
 			Debug.Log ("Move not found for learning_modifier (" + move + "," + playerNo + ")");
