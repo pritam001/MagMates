@@ -47,6 +47,7 @@ public class game_controller : MonoBehaviour {
 	private Vector3 point;//the coord to the point where the camera looks at
 	private static float total_deg = 180f;
 
+
 	void Start () {//Set up things on the start method
 		activeCam = Camera.main;
 
@@ -69,9 +70,12 @@ public class game_controller : MonoBehaviour {
 	}
 
 	public static void changePlayer () {
+		linegraph_manager linegraph_instance = new linegraph_manager();
 		if(playerNo == 1){
+			linegraph_instance.AddPlayer1Data (move_analysis.learning_point_p1);
 			playerNo = 2;
 		} else if(playerNo == 2){
+			linegraph_instance.AddPlayer1Data (move_analysis.learning_point_p2);
 			playerNo = 1;
 		}
 		total_deg = 0f;

@@ -37,15 +37,22 @@ public class linegraph_manager : MonoBehaviour {
 
 
 	void Start(){
+		
+		/*AddPlayer1Data (12);
+		AddPlayer2Data (-12);
+		// showing graph
+		ShowGraph();*/
+	}
 
+	public void show_random_data(){
 		// adding random data
 		int index = Random.Range(20,120);
 		for(int i = 0; i < index; i++){
 			GraphData gd = new GraphData();
-			gd.marbles = Random.Range(10,47);
+			gd.marbles = Random.Range(-27,23);
 			graphDataPlayer1.Add(gd);
 			GraphData gd2 = new GraphData();
-			gd2.marbles = Random.Range(10,47);
+			gd2.marbles = Random.Range(15,50);
 			graphDataPlayer2.Add(gd2);
 		}
 

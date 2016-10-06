@@ -35,6 +35,14 @@ public class move_analysis : MonoBehaviour {
 			learning_modifier (-10, playerNo);
 			Debug.Log ("Analysis: plastic_blocks => -10 points to player" + playerNo);
 			break;
+		case "iron_capture":
+			learning_modifier (15, playerNo);
+			Debug.Log ("Analysis: iron_capture => 15 points to player" + playerNo);
+			break;
+		case "miss_iron_capture":
+			learning_modifier (-5, playerNo);
+			Debug.Log ("Analysis: miss_iron_capture => -5 points to player" + playerNo);
+			break;
 		default:
 			Debug.Log ("Move not found for learning_modifier (" + move + "," + playerNo + ")");
 			break;
