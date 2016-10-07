@@ -30,7 +30,7 @@ public class game_controller : MonoBehaviour {
 	public bool firework_started = false;
 
 	// Game cameras to switch between top and side view
-	public Camera sideCam, topCam;
+	public Camera sideCam, topCam, graphCam;
 	public static Camera activeCam;
 	public bool topViewOn = false;
 
@@ -47,9 +47,17 @@ public class game_controller : MonoBehaviour {
 	private Vector3 point;//the coord to the point where the camera looks at
 	private static float total_deg = 180f;
 
+	public Canvas inGameCanvas;
+	public Canvas graphCanvas;
+	public static bool addLearningPoint;
+	public static bool showGraph;
 
 	void Start () {//Set up things on the start method
 		activeCam = Camera.main;
+		graphCam.enabled = false;
+		graphCanvas.enabled = false;
+		addLearningPoint = true;
+		showGraph = true;
 
 		player_no_text.text = "Player " + playerNo;
 		point = target.transform.position;//get target's coords
@@ -70,12 +78,10 @@ public class game_controller : MonoBehaviour {
 	}
 
 	public static void changePlayer () {
-		linegraph_manager linegraph_instance = new linegraph_manager();
+		addLearningPoint = true;
 		if(playerNo == 1){
-			linegraph_instance.AddPlayer1Data (move_analysis.learning_point_p1);
 			playerNo = 2;
 		} else if(playerNo == 2){
-			linegraph_instance.AddPlayer1Data (move_analysis.learning_point_p2);
 			playerNo = 1;
 		}
 		total_deg = 0f;
@@ -148,6 +154,26 @@ public class game_controller : MonoBehaviour {
 			activeCam = sideCam;
 			topViewOn = false;
 		}
+	}
+		
+	public void on_showGraph_click(){
+		graphCam.enabled = true;
+		activeCam = graphCam;
+		topCam.enabled = false;
+		sideCam.enabled = false;
+		inGameCanvas.enabled = false;
+		graphCanvas.enabled = true;
+		showGraph = true;
+	}
+
+	public void on_hideGraph_click(){
+		graphCam.enabled = false;
+		graphCanvas.enabled = false;
+		topCam.enabled = true;
+		sideCam.enabled = true;
+		inGameCanvas.enabled = true;
+		activeCam = sideCam;
+		on_viewchanger_click ();
 	}
 
 	public void playerWon(int winCondition, int playerNum){

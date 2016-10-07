@@ -25,7 +25,7 @@ public class linegraph_manager : MonoBehaviour {
 	public List<GraphData> graphDataPlayer2 = new List<GraphData>();
 
 	private GraphData gd;
-	private float highestValue = 56;
+	private float highestValue = 50;
 
 	public Transform origin;
 
@@ -37,11 +37,33 @@ public class linegraph_manager : MonoBehaviour {
 
 
 	void Start(){
-		
+
+		//show_random_data ();
 		/*AddPlayer1Data (12);
 		AddPlayer2Data (-12);
 		// showing graph
 		ShowGraph();*/
+	}
+
+	void Update(){
+		if (game_controller.showGraph) {
+			ShowGraph ();
+			game_controller.showGraph = false;
+		}
+		if (game_controller.addLearningPoint) {
+			if (game_controller.playerNo == 1) {
+				AddPlayer1Data (move_analysis.learning_point_p1);
+				if (Mathf.Abs(move_analysis.learning_point_p1) > highestValue) {
+					highestValue = Mathf.Abs(move_analysis.learning_point_p1);
+				}
+			} else {
+				AddPlayer2Data (move_analysis.learning_point_p2);
+				if (Mathf.Abs(move_analysis.learning_point_p2) > highestValue) {
+					highestValue = Mathf.Abs(move_analysis.learning_point_p2);
+				}
+			}
+			game_controller.addLearningPoint = false;
+		}
 	}
 
 	public void show_random_data(){
@@ -69,7 +91,7 @@ public class linegraph_manager : MonoBehaviour {
 			// so that we get a value less than or equals to 1 and than we can multiply that
 			// number with Y axis range to fit in graph. 
 			// e.g. marbles = 90, highest = 90 so 90/90 = 1 and than 1*7 = 7 so for 90, Y = 7
-			gdlist[i].marbles = (gdlist[i].marbles/highestValue)*7;
+			gdlist[i].marbles = (gdlist[i].marbles/highestValue)*6;
 		}
 		if(playerNum == 1) 
 			StartCoroutine(BarGraphBlue(gdlist,gap));
@@ -81,15 +103,17 @@ public class linegraph_manager : MonoBehaviour {
 		GraphData gd = new GraphData();
 		gd.marbles = numOfStones;
 		graphDataPlayer1.Add(gd);
+		//Debug.Log ("Ok1 " + numOfStones);
 	}
 	public void AddPlayer2Data(int numOfStones){
 		GraphData gd = new GraphData();
 		gd.marbles = numOfStones;
 		graphDataPlayer2.Add(gd);
+		//Debug.Log ("Ok2 " + numOfStones);
 	}
 
 	public void ShowGraph(){
-
+		//Debug.Log ("Showgraph");
 		ClearGraph();
 
 		if(graphDataPlayer1.Count >= 1 && graphDataPlayer2.Count >= 1){
@@ -180,6 +204,13 @@ public class linegraph_manager : MonoBehaviour {
 		int dataCount = 0;
 		bool flag = false;
 		Vector3 startpoint = new Vector3((origin.position.x+xIncrement),(origin.position.y+gd[dataCount].marbles),(origin.position.z));//origin.position;//
+
+		for (int i = 0; i <= 5; i++) {
+			GameObject lineNumber = Instantiate(xLineNumber, new Vector3(origin.position.x-0.25f, origin.position.y+(float)(i*6)/(float)5, origin.position.z),Quaternion.identity) as GameObject;
+			lineNumber.GetComponent<TextMesh>().text = (i*highestValue/5).ToString();
+			GameObject lineNumber2 = Instantiate(xLineNumber, new Vector3(origin.position.x-0.25f, origin.position.y-(float)(i*6)/(float)5, origin.position.z),Quaternion.identity) as GameObject;
+			lineNumber2.GetComponent<TextMesh>().text = (-i*highestValue/5).ToString();
+		}
 
 		while(dataCount < gd.Length)
 		{

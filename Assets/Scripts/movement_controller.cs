@@ -30,7 +30,7 @@ public class movement_controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(game_controller.game_started && !game_controller.game_ended && !game_controller.game_paused && !game_controller.placing_plastic){	
+		if(game_controller.game_started && !game_controller.game_ended && !game_controller.game_paused && !game_controller.placing_plastic ){	
 			if (Input.GetButtonDown("Fire1")) {
 				glowOff();
 
