@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/pre_network.unity
+- path: Assets/multiplayer_board.unity
   isLoaded: 1
   isActive: 1

@@ -22,7 +22,7 @@ public class network_player_search : NetworkBehaviour {
 	public void hostServerClick(){
 		IPPortUpdater ();
 		Network.InitializeServer (1, portNumber, false);
-		OutputText.text = "Game hosted at " + connectionIp + ":" + portNumber.ToString() 
+		OutputText.text = "Game hosted at 127.0.0.1:" + portNumber.ToString() 
 			+ "\nWaiting for opponent to join . . .";
 		HostServerButton.interactable = false;
 		JoinServerButton.interactable = false;

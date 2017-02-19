@@ -1,13 +1,13 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{2F51534E-5D44-2A45-988D-7C983EC0D300}") = "MagMates", "Assembly-CSharp-firstpass.csproj", "{2C31A191-800D-EDA4-1277-4FE9889285A3}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagMates", "Assembly-CSharp-firstpass.csproj", "{2C31A191-800D-EDA4-1277-4FE9889285A3}"
 EndProject
-Project("{2F51534E-5D44-2A45-988D-7C983EC0D300}") = "MagMates", "Assembly-CSharp.csproj", "{064835F0-7718-108C-FC74-E00B64F364C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagMates", "Assembly-CSharp.csproj", "{064835F0-7718-108C-FC74-E00B64F364C5}"
 EndProject
-Project("{2F51534E-5D44-2A45-988D-7C983EC0D300}") = "MagMates", "Assembly-CSharp-Editor.csproj", "{09A5108D-3C04-038F-7B98-22F15528F2F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagMates", "Assembly-CSharp-Editor.csproj", "{09A5108D-3C04-038F-7B98-22F15528F2F9}"
 EndProject
-Project("{2F51534E-5D44-2A45-988D-7C983EC0D300}") = "MagMates", "Assembly-UnityScript.unityproj", "{72319B97-24D1-D89C-B6C1-FFDC60355035}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagMates", "Assembly-UnityScript.unityproj", "{72319B97-24D1-D89C-B6C1-FFDC60355035}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
