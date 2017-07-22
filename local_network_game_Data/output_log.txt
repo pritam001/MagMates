@@ -1,0 +1,42 @@
+Mono path[0] = 'C:/Users/Pritam Sarkar/Documents/MagMates/local_network_game_Data/Managed'
+Mono path[1] = 'C:/Users/Pritam Sarkar/Documents/MagMates/local_network_game_Data/Mono'
+Mono config path = 'C:/Users/Pritam Sarkar/Documents/MagMates/local_network_game_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Pritam Sarkar/Documents/MagMates/local_network_game_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55129
+Multi-casting "[IP] 10.9.41.3 [Port] 55129 [Flags] 3 [Guid] 973140651 [EditorId] 104407671 [Version] 1048832 [Id] WindowsPlayer(Infurnus) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [0.0.0.0:55129]...
+Timed out. Continuing without host connection.
+Started listening to [0.0.0.0:55129]
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56651
+PlayerConnection already initialized - listening to [0.0.0.0:55129]
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 630M (ID=0xde9)
+    Vendor:   NVIDIA
+    VRAM:     1999 MB
+    Driver:   10.18.10.4358
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.426 seconds
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\local_network_game_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.009645 ms

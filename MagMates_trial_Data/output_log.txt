@@ -1,51 +1,31 @@
-Iniiitialize engine version: 5.2.2f1 (3757309da7e7
-)
-GffxDeDicvice:  ccertineadetice nlge t; dheevdece =cl
-ient; threaded=1
-Diirrctct33:
- 
-     Vrsien:r siroe:  D3recD3D 11.0 [level 11.0]
-
-    Renderer: InteltRel(R) HD Graphics 4000 (ID=0x1
-66)V e  Vendor:   Int
-el     VRAM:     128 
-MB
-Begegin  MoMoMnoManageer RRelooadAssememblyy
-Platloamtasormsasmbsye Cbly: CUs:r\\Usblri\P.PRuTAlicMPRDoIumeTAM\Documents\MagMates\MaglMDataes\Maiaagld_UDityanga\Minae.geld(\hinis Enessggene. lls  arthim lesss)s
-agoediisnha C:rUmeress)\
-Puoaldi.PngTA \DoCum\Userst\\MualiMatc.\MRIagMMDotecutrienls_Data\Mas\Magnates_d\rial_Dangi\ne.dll intityEnginy Cdhildn o Uniity
- Child Domain
-Platlarmtassfmolyr C:\UseersmPuly: licCPR\UsITA\Publicme.tsRIagAM\Documegnats\sMtagal_DaMa\Mtan\aagMeted_\Aiasemblya-Managerp-firstbpy-ss.dllp-f(thstps sm.dsag (thsiharmless)e i
-s harmLoadin
-g C:\Uosers\Public.rs\RIuTAM\DocIuAM\ntos\MagMatMesM\MagMates_ter_trl_DatData\Mnnageed\As\Amsly-mblharp-Sharp-firstpalssn.o lUnitynCtil UDomainCh
-ild Domain
-PlatfPrmlatform a: Cem\Users\:\Uublis\.PRITlMc\PRoITAMntDocumeMntes\MMgMateM\MatMatets_trial_Data\MgnagedA\semblyb-y-CSharpp.ddll (htshis mese ias harmless)e
-s)
-Loadaingg CC:\UUersr\P\Puulicic.PRIPRMIToAM\DocumentMs\eMagaMaates\_trgialesData\Managed\MaAnaged\AsCSsaemblyl iShto p.dll intold Dnimai nh
-ld Domain
-PlatfPrm lsaetbly:orm as:seserm\bublic: RI:\U\Dercsments\M\gPubeic.\MaPMaITAMesD_trial_DaMagMaaesa\MagMnitaEntine_trI.adll (a\Misameagsd\Uagetyis harm.Ul.dssl)(
-his meLsagding C:\Umless)
-Puboadcn. CR:\Users\Pubnts\MagRITAM\Ds\Muagntstesagtatisal_DMata\tans_trialn_Data\Man.agedll into Uninty Child  Domain
-ty Child Domain
-Plltftfom am assembly:: C:\Usersblic.P\IPuM\Docubelis\.PagMaTAM\es\MagnMs\MagMatesl\DataagMatges_UnitialE_gineDNatwarkinng.dll (thyEns mnessage isinghardllm(lhie mse
-ssage adi na r:\lessr)\P
-ublic.oPRITA C\DoUsueerts\MaPMablic.PRteAM\MDogcumenttsialagMaate\Mas\Mggeat\Unety_ntinial_Date\MaNetgwo\Unintg.nglnl.Ne wonto Unity into U ityChhill D Dooaiai
-n
-PlatforP latform : C:\emUlse Cs\\UPerblic.blic.RITPMRITcumAMts\MagMates\MagMataess\_atrial_Data\Mln_geata\\SysteM.aoraged\Sy(stem.Coreage is .armless()
-is message is harmless)
-- CCommplete r rloae, oadi nn  0.4490 secondsd
-
-desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
-desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
+Initialize engine version: 5.2.2f1 (3757309da7e7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 630M (ID=0xde9)
+    Vendor:   NVIDIA
+    VRAM:     1999 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  1.355 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
-<RI> Initializing input.
-<RI> Input initialized<R
-I> Input initialized.
+<RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\Public.PRITAM\Documents\MagMates\MagMates_trial_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Pritam Sarkar\Documents\MagMates\MagMates_trial_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 59dac -> priority: 1 
-  Thread -> id: 4e644 -> priority: 1 
+  Thread -> id: 113c -> priority: 1 
+  Thread -> id: c4c -> priority: 1 
 Loading complete : 0 %
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -55,6 +35,42 @@ Loading complete : 0 %
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 0 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 7 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 7 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 7 %
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -98,11 +114,15 @@ Loading complete : 9 %
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Loading complete : 11 %
+Loading complete : 9 %
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Loading complete : 27 %
+Loading complete : 10 %
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Loading complete : 31 %
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -155,19 +175,23 @@ Loading complete : 89 %
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Loading complete : 89 %
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-UnloadTime: 75.100731 ms
+UnloadTime: 4.392657 ms
 
 Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 968.
-Total: 20.951521 ms (FindLiveObjects: 0.057730 ms CreateObjectMapping: 0.038487 ms MarkObjects: 20.785172 ms  DeleteObjects: 0.069276 ms)
+Total: 0.428061 ms (FindLiveObjects: 0.039342 ms CreateObjectMapping: 0.026513 ms MarkObjects: 0.311317 ms  DeleteObjects: 0.050033 ms)
 
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
 
 Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 968.
-Total: 0.428062 ms (FindLiveObjects: 0.044046 ms CreateObjectMapping: 0.033355 ms MarkObjects: 0.346811 ms  DeleteObjects: 0.003421 ms)
+Total: 0.390002 ms (FindLiveObjects: 0.035493 ms CreateObjectMapping: 0.026085 ms MarkObjects: 0.325429 ms  DeleteObjects: 0.002565 ms)
+
+Player1 clicked on [1, 3] = 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Player1 clicked on [3, 2] = 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Player1 clicked on [3, 2] = 2
  
@@ -177,7 +201,7 @@ boardMatrix[3,2] = 2 moving to empty cell boardMatrix[3,3] = 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-IronPawn(Clone) moveAnimStep (0.9750454,0,0)
+IronPawn(Clone) moveAnimStep (0.9790096,0,0)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -185,15 +209,15 @@ Switched to Player2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Player2 clicked on [4, 6] = 5
+Player2 clicked on [4, 5] = 6
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Move checking 6
+boardMatrix[4,5] = 6 moving to empty cell boardMatrix[4,4] = 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Pushing all the pawns in the path.
+IronPawn(Clone) moveAnimStep (-0.9828157,0,0)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -201,27 +225,19 @@ Switched to Player1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Player1 clicked on [3, 1] = 1
+Player1 clicked on [2, 2] = 2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-boardMatrix[3,1] = 1 moving to self destruction cell boardMatrix[3,0] = -1
+boardMatrix[2,2] = 2 moving to empty cell boardMatrix[2,3] = 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-MagnetPawnA moveAnimStep (-0.9750403,0,0)
+IronPawn(Clone) moveAnimStep (0.9834211,0,0)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Switched to Player2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Player1's MagnetPawnA self destroyed.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Game ended! Player2 has won the game as opponent's magnet got destroyed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
